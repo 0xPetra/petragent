@@ -98,7 +98,8 @@ skills:
     {
       enabled: true,
       schedule: "workflow_dispatch",
-      var: "Replicate the deep research skill. ",
+      var: "Tech Tree Skill. Replicate the deep research skill, but add Obsidian
+        support (.md files with a repo) ",
       model: claude-opus-4-8
     } # one-shot skill creator — set var to a description prompt
   install-skill: { enabled: false, schedule: "workflow_dispatch", var: "" } # on-demand — install a community skill pack and open a PR; var: owner/repo [skill...]

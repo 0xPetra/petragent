@@ -45,14 +45,14 @@
   },
   "tech-tree": {
     "last_dispatch": "2026-06-24T15:46:36Z",
-    "last_status": "dispatched",
-    "last_failed": "2026-06-24T14:57:16Z",
-    "total_runs": 1,
+    "last_status": "failed",
+    "last_failed": "2026-06-24T15:46:57Z",
+    "total_runs": 2,
     "total_successes": 0,
-    "total_failures": 1,
-    "consecutive_failures": 1,
+    "total_failures": 2,
+    "consecutive_failures": 2,
     "success_rate": 0,
-    "last_error": "cheReadInputTokens\":0,\"cacheCreationInputTokens\":0,\"webSearchRequests\":32,\"costUSD\":0.9226389999999999,\"contextWindow\":200000,\"maxOutputTokens\":32000},\"claude-opus-4-7\":{\"inputTokens\":2003,\"outputToke"
+    "last_error": "ef4d421\",\"total_cost_usd\":0,\"usage\":{\"input_tokens\":0,\"cache_creation_input_tokens\":0,\"cache_read_input_tokens\":0,\"output_tokens\":0,\"server_tool_use\":{\"web_search_requests\":0,\"web_fetch_requests\":0},\""
   },
   "tweet-digest": {
     "last_dispatch": "2026-06-24T14:54:12Z",

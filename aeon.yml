@@ -113,7 +113,7 @@ skills:
   list-digest: { enabled: false, schedule: "0 17 * * *" }
   reply-maker: { enabled: false, schedule: "0 17 * * *" }
   remix-tweets: { enabled: false, schedule: "30 17 * * *" } # 10 rephrased versions of random past tweets
-  tweet-roundup: { enabled: true, schedule: "0 17 * * *", var: "" } # latest tweets on configurable topics
+  tweet-roundup: { enabled: true, schedule: "0 17 * * *", var: "", model: claude-opus-4-8 } # latest tweets on configurable topics
   agent-buzz: { enabled: false, schedule: "30 17 * * *" } # top AI agent tweets by influence
   farcaster-digest: { enabled: false, schedule: "0 17 * * *" } # trending Farcaster casts
   vibecoding-digest: { enabled: false, schedule: "30 17 * * *" } # r/vibecoding trending posts

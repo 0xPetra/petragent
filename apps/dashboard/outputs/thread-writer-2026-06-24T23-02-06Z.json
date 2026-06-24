@@ -1,0 +1,139 @@
+{
+  "root": "card_main",
+  "state": {},
+  "elements": {
+    "card_main": {
+      "type": "Card",
+      "props": {
+        "title": "World Cup, Brier Scores, and Prediction Markets"
+      },
+      "children": [
+        "stack_main"
+      ]
+    },
+    "stack_main": {
+      "type": "Stack",
+      "props": {
+        "direction": "vertical",
+        "gap": "md"
+      },
+      "children": [
+        "section1_heading",
+        "tweet_1",
+        "tweet_2",
+        "sep_1",
+        "section2_heading",
+        "tweet_3",
+        "tweet_4",
+        "tweet_5",
+        "sep_2",
+        "section3_heading",
+        "tweet_6",
+        "tweet_7",
+        "tweet_8"
+      ]
+    },
+    "section1_heading": {
+      "type": "Heading",
+      "props": {
+        "text": "Understanding Brier Scores",
+        "level": "h3"
+      },
+      "children": []
+    },
+    "tweet_1": {
+      "type": "Text",
+      "props": {
+        "text": "1/ France leads the 2026 World Cup at ~20% on Kalshi and Polymarket. Here's the thing nobody says: even a flawless forecast of this tournament will post an ugly Brier score. That's not the model failing. That's the whole point.",
+        "variant": "body"
+      },
+      "children": []
+    },
+    "tweet_2": {
+      "type": "Text",
+      "props": {
+        "text": "2/ Brier score grades probabilistic forecasts. Take (your probability − the outcome), square it, average it. 0 is perfect. It rewards being confident AND right. Say 90% and it happens, you score great. Say 90% and it doesn't, you pay hard.",
+        "variant": "body"
+      },
+      "children": []
+    },
+    "sep_1": {
+      "type": "Separator",
+      "props": {
+        "orientation": "horizontal"
+      },
+      "children": []
+    },
+    "section2_heading": {
+      "type": "Heading",
+      "props": {
+        "text": "Why Sports Are Inherently Unpredictable",
+        "level": "h3"
+      },
+      "children": []
+    },
+    "tweet_3": {
+      "type": "Text",
+      "props": {
+        "text": "3/ The catch: you can only be confidently right when the world is predictable. Sports are engineered to not be. Seeding, parity, single-elimination — all of it exists to keep outcomes near a coin flip. The drama is the design.",
+        "variant": "body"
+      },
+      "children": []
+    },
+    "tweet_4": {
+      "type": "Text",
+      "props": {
+        "text": "4/ So a perfectly calibrated 60% pick that loses still hurts your Brier. Murphy's decomposition makes it explicit: part of every score is pure irreducible uncertainty — base-rate variance you cannot model away. Sports max it out.",
+        "variant": "body"
+      },
+      "children": []
+    },
+    "tweet_5": {
+      "type": "Text",
+      "props": {
+        "text": "5/ Soccer is the worst offender. Low-scoring, one goal decides a match, knockout rounds, and penalty shootouts that sit close to a literal coin flip. The irreducible noise is enormous. Your forecast was never going to look sharp.",
+        "variant": "body"
+      },
+      "children": []
+    },
+    "sep_2": {
+      "type": "Separator",
+      "props": {
+        "orientation": "horizontal"
+      },
+      "children": []
+    },
+    "section3_heading": {
+      "type": "Heading",
+      "props": {
+        "text": "How to Read Prediction Markets",
+        "level": "h3"
+      },
+      "children": []
+    },
+    "tweet_6": {
+      "type": "Text",
+      "props": {
+        "text": "6/ Which makes comparing Brier scores across domains the real mistake. A rain model and a World Cup model live on different noise floors. Judge a forecast against its own base rate — a skill score — not some absolute number.",
+        "variant": "body"
+      },
+      "children": []
+    },
+    "tweet_7": {
+      "type": "Text",
+      "props": {
+        "text": "7/ This is how to read prediction markets. When France at 20% doesn't lift the trophy, the market wasn't wrong. It told you 80% chance someone else wins. A price is a distribution, not a prophecy. The people dunking on it are misreading it.",
+        "variant": "body"
+      },
+      "children": []
+    },
+    "tweet_8": {
+      "type": "Text",
+      "props": {
+        "text": "8/ The irreducible uncertainty isn't a flaw in sports forecasting. It's the reason these markets exist and stay liquid. The noise is the product. Read the price as a probability, not a promise. We keep building.",
+        "variant": "body"
+      },
+      "children": []
+    }
+  }
+}

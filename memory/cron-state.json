@@ -45,7 +45,14 @@
   },
   "tech-tree": {
     "last_dispatch": "2026-06-24T14:54:12Z",
-    "last_status": "dispatched"
+    "last_status": "failed",
+    "last_failed": "2026-06-24T14:57:16Z",
+    "total_runs": 1,
+    "total_successes": 0,
+    "total_failures": 1,
+    "consecutive_failures": 1,
+    "success_rate": 0,
+    "last_error": "cheReadInputTokens\":0,\"cacheCreationInputTokens\":0,\"webSearchRequests\":32,\"costUSD\":0.9226389999999999,\"contextWindow\":200000,\"maxOutputTokens\":32000},\"claude-opus-4-7\":{\"inputTokens\":2003,\"outputToke"
   },
   "tweet-digest": {
     "last_dispatch": "2026-06-24T14:54:12Z",

@@ -44,8 +44,8 @@
     "last_quality_score": 4
   },
   "tech-tree": {
-    "last_dispatch": "2026-06-24T18:07:09Z",
-    "last_status": "failed",
+    "last_dispatch": "2026-06-24T18:50:34Z",
+    "last_status": "dispatched",
     "last_failed": "2026-06-24T18:07:23Z",
     "total_runs": 5,
     "total_successes": 0,
@@ -66,8 +66,8 @@
     "last_quality_score": 3
   },
   "tweet-roundup": {
-    "last_dispatch": "2026-06-24T18:07:09Z",
-    "last_status": "failed",
+    "last_dispatch": "2026-06-24T18:50:34Z",
+    "last_status": "dispatched",
     "last_failed": "2026-06-24T18:07:27Z",
     "total_runs": 2,
     "total_successes": 0,

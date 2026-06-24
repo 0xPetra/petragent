@@ -1,0 +1,14 @@
+{
+  "skill": "tweet-digest",
+  "last_analyzed": "2026-06-24T14:55:17Z",
+  "quality_score": 3,
+  "assessment": "Skill gracefully handled missing config with correct error code and clear follow-up instructions.",
+  "flags": [],
+  "avg_score": 3,
+  "history": [
+    {
+      "date": "2026-06-24",
+      "score": 3
+    }
+  ]
+}

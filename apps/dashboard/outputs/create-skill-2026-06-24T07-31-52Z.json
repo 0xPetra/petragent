@@ -1,0 +1,201 @@
+{
+  "root": "card-main",
+  "state": {},
+  "elements": {
+    "card-main": {
+      "type": "Card",
+      "props": {
+        "title": "create-skill — tech-tree"
+      },
+      "children": [
+        "text-desc",
+        "sep1",
+        "config-section",
+        "sep2",
+        "pr-section",
+        "sep3",
+        "trigger-section"
+      ]
+    },
+    "text-desc": {
+      "type": "Text",
+      "props": {
+        "text": "Maps a tech domain into an Obsidian vault: per-node deep-research (tiered + confidence-scored) → wikilinked .md notes under vault/<slug>/ → Precog + Polymarket odds attached, with draft-only Precog market proposals (await_approval, never signs). Aligns tightly with precog.market.",
+        "variant": "body"
+      }
+    },
+    "sep1": {
+      "type": "Separator",
+      "props": {
+        "orientation": "horizontal"
+      }
+    },
+    "config-section": {
+      "type": "Stack",
+      "props": {
+        "direction": "vertical",
+        "gap": "md"
+      },
+      "children": [
+        "config-heading",
+        "schedule-stack",
+        "secrets-stack",
+        "branch-stack"
+      ]
+    },
+    "config-heading": {
+      "type": "Heading",
+      "props": {
+        "text": "Configuration",
+        "level": "h3"
+      }
+    },
+    "schedule-stack": {
+      "type": "Stack",
+      "props": {
+        "direction": "horizontal",
+        "gap": "md"
+      },
+      "children": [
+        "schedule-label",
+        "schedule-value"
+      ]
+    },
+    "schedule-label": {
+      "type": "Text",
+      "props": {
+        "text": "Schedule:",
+        "variant": "caption"
+      }
+    },
+    "schedule-value": {
+      "type": "Text",
+      "props": {
+        "text": "workflow_dispatch (disabled by default)",
+        "variant": "body"
+      }
+    },
+    "secrets-stack": {
+      "type": "Stack",
+      "props": {
+        "direction": "horizontal",
+        "gap": "md"
+      },
+      "children": [
+        "secrets-label",
+        "secrets-value"
+      ]
+    },
+    "secrets-label": {
+      "type": "Text",
+      "props": {
+        "text": "Secrets:",
+        "variant": "caption"
+      }
+    },
+    "secrets-value": {
+      "type": "Text",
+      "props": {
+        "text": "none (keyless reads)",
+        "variant": "body"
+      }
+    },
+    "branch-stack": {
+      "type": "Stack",
+      "props": {
+        "direction": "horizontal",
+        "gap": "md"
+      },
+      "children": [
+        "branch-label",
+        "branch-value"
+      ]
+    },
+    "branch-label": {
+      "type": "Text",
+      "props": {
+        "text": "Branch:",
+        "variant": "caption"
+      }
+    },
+    "branch-value": {
+      "type": "Text",
+      "props": {
+        "text": "create-skill/tech-tree",
+        "variant": "body"
+      }
+    },
+    "sep2": {
+      "type": "Separator",
+      "props": {
+        "orientation": "horizontal"
+      }
+    },
+    "pr-section": {
+      "type": "Stack",
+      "props": {
+        "direction": "vertical",
+        "gap": "md"
+      },
+      "children": [
+        "pr-heading",
+        "pr-alert",
+        "pr-link"
+      ]
+    },
+    "pr-heading": {
+      "type": "Heading",
+      "props": {
+        "text": "Pull Request",
+        "level": "h3"
+      }
+    },
+    "pr-alert": {
+      "type": "Alert",
+      "props": {
+        "title": "Manual Action Required",
+        "message": "PR could not be auto-opened. Org policy blocks the Actions token from creating PRs.",
+        "type": "warning"
+      }
+    },
+    "pr-link": {
+      "type": "StoryLink",
+      "props": {
+        "title": "create-skill/tech-tree",
+        "href": "https://github.com/0xPetra/petragent/pull/new/create-skill/tech-tree",
+        "source": "GitHub"
+      }
+    },
+    "sep3": {
+      "type": "Separator",
+      "props": {
+        "orientation": "horizontal"
+      }
+    },
+    "trigger-section": {
+      "type": "Stack",
+      "props": {
+        "direction": "vertical",
+        "gap": "md"
+      },
+      "children": [
+        "trigger-heading",
+        "trigger-value"
+      ]
+    },
+    "trigger-heading": {
+      "type": "Heading",
+      "props": {
+        "text": "Trigger",
+        "level": "h3"
+      }
+    },
+    "trigger-value": {
+      "type": "Text",
+      "props": {
+        "text": "dispatch skill=tech-tree var=\"AI agents --depth=deep\"",
+        "variant": "body"
+      }
+    }
+  }
+}

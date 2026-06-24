@@ -1,0 +1,249 @@
+{
+  "root": "card",
+  "state": {},
+  "elements": {
+    "card": {
+      "type": "Card",
+      "props": {
+        "title": "soul built — Petra (@0xpetra)"
+      },
+      "children": [
+        "content"
+      ]
+    },
+    "content": {
+      "type": "Stack",
+      "props": {
+        "direction": "vertical",
+        "gap": "lg"
+      },
+      "children": [
+        "identity-section",
+        "sources-section",
+        "files-section",
+        "trait-section",
+        "action-section"
+      ]
+    },
+    "identity-section": {
+      "type": "Stack",
+      "props": {
+        "direction": "vertical",
+        "gap": "sm"
+      },
+      "children": [
+        "h-identity",
+        "t-identity"
+      ]
+    },
+    "h-identity": {
+      "type": "Heading",
+      "props": {
+        "text": "Identity",
+        "level": "h3"
+      },
+      "children": []
+    },
+    "t-identity": {
+      "type": "Text",
+      "props": {
+        "text": "Founder of precog.market (cypherpunk prediction markets on Base, no VC, no extractive token), Ethereum native since 2017 via Buenos Aires"
+      },
+      "children": []
+    },
+    "sources-section": {
+      "type": "Stack",
+      "props": {
+        "direction": "vertical",
+        "gap": "sm"
+      },
+      "children": [
+        "h-sources",
+        "src-list"
+      ]
+    },
+    "h-sources": {
+      "type": "Heading",
+      "props": {
+        "text": "Sources",
+        "level": "h3"
+      },
+      "children": []
+    },
+    "src-list": {
+      "type": "Stack",
+      "props": {
+        "direction": "vertical",
+        "gap": "sm"
+      },
+      "children": [
+        "src-1",
+        "src-2",
+        "src-3",
+        "src-4",
+        "src-5"
+      ]
+    },
+    "src-1": {
+      "type": "Text",
+      "props": {
+        "text": "X (WebSearch, ~12 posts)"
+      },
+      "children": []
+    },
+    "src-2": {
+      "type": "StoryLink",
+      "props": {
+        "title": "precog.market",
+        "href": "https://precog.market"
+      },
+      "children": []
+    },
+    "src-3": {
+      "type": "StoryLink",
+      "props": {
+        "title": "docs.precog.market",
+        "href": "https://docs.precog.market"
+      },
+      "children": []
+    },
+    "src-4": {
+      "type": "StoryLink",
+      "props": {
+        "title": "learn.precog.market",
+        "href": "https://learn.precog.market"
+      },
+      "children": []
+    },
+    "src-5": {
+      "type": "Text",
+      "props": {
+        "text": "Web search"
+      },
+      "children": []
+    },
+    "files-section": {
+      "type": "Stack",
+      "props": {
+        "direction": "vertical",
+        "gap": "sm"
+      },
+      "children": [
+        "h-files",
+        "files-list"
+      ]
+    },
+    "h-files": {
+      "type": "Heading",
+      "props": {
+        "text": "Files Created",
+        "level": "h3"
+      },
+      "children": []
+    },
+    "files-list": {
+      "type": "Grid",
+      "props": {
+        "columns": 3,
+        "gap": "sm"
+      },
+      "children": [
+        "file-1",
+        "file-2",
+        "file-3"
+      ]
+    },
+    "file-1": {
+      "type": "Badge",
+      "props": {
+        "text": "soul/SOUL.md"
+      },
+      "children": []
+    },
+    "file-2": {
+      "type": "Badge",
+      "props": {
+        "text": "soul/STYLE.md"
+      },
+      "children": []
+    },
+    "file-3": {
+      "type": "Badge",
+      "props": {
+        "text": "soul/examples/good-outputs.md"
+      },
+      "children": []
+    },
+    "trait-section": {
+      "type": "Stack",
+      "props": {
+        "direction": "vertical",
+        "gap": "sm"
+      },
+      "children": [
+        "h-trait",
+        "t-trait"
+      ]
+    },
+    "h-trait": {
+      "type": "Heading",
+      "props": {
+        "text": "Most Distinctive Trait",
+        "level": "h3"
+      },
+      "children": []
+    },
+    "t-trait": {
+      "type": "Text",
+      "props": {
+        "text": "Anti-extraction as architecture — her \"contrarian take\" of a zero-value play token isn't a product decision, it's a statement about what makes ecosystems survive. That same instinct runs through every line she writes."
+      },
+      "children": []
+    },
+    "action-section": {
+      "type": "Stack",
+      "props": {
+        "direction": "vertical",
+        "gap": "md"
+      },
+      "children": [
+        "action-text",
+        "action-buttons"
+      ]
+    },
+    "action-text": {
+      "type": "Text",
+      "props": {
+        "text": "Review + edit in the dashboard Soul tab, then Pull to refresh."
+      },
+      "children": []
+    },
+    "action-buttons": {
+      "type": "Stack",
+      "props": {
+        "direction": "horizontal",
+        "gap": "md"
+      },
+      "children": [
+        "btn-review",
+        "btn-pull"
+      ]
+    },
+    "btn-review": {
+      "type": "Button",
+      "props": {
+        "label": "Review in Dashboard",
+        "variant": "primary"
+      },
+      "children": []
+    },
+    "btn-pull": {
+      "type": "Button",
+      "props": {
+        "label": "Pull to Refresh",
+        "variant": "secondary"
+      },
+      "children": []
+    }
+  }
+}

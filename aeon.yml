@@ -65,7 +65,7 @@ skills:
   technical-explainer: { enabled: false, schedule: "30 14 * * *" } # visual technical explanation with AI-generated hero image
   digest: { enabled: false, schedule: "0 14 * * *" }
   research-brief: { enabled: false, schedule: "0 14 * * *" }
-  deep-research: { enabled: false, schedule: "workflow_dispatch", var: "" } # on-demand only — set var to research topic
+  deep-research: { enabled: true, schedule: "workflow_dispatch", var: "" } # on-demand only — set var to research topic
   last30: { enabled: false, schedule: "workflow_dispatch", var: "" } # on-demand — cross-platform 30-day social research
   paper-pick: { enabled: false, schedule: "0 14 * * *" }
   search-skill: { enabled: false, schedule: "0 14 * * *" }

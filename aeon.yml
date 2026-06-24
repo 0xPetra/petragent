@@ -97,7 +97,7 @@ skills:
   autoresearch: { enabled: false, schedule: "workflow_dispatch", var: "" } # on-demand — set var to skill name to evolve
   create-skill:
     {
-      enabled: true,
+      enabled: false,
       schedule: "workflow_dispatch",
       var: "Tech Tree Skill. 1. Replicate the deep research skill. 2. Add Obsidian
         support (.md files with a repo). 3. Precog Market compatible (markets'

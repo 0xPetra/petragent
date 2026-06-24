@@ -98,8 +98,10 @@ skills:
     {
       enabled: true,
       schedule: "workflow_dispatch",
-      var: "Tech Tree Skill. Replicate the deep research skill, but add Obsidian
-        support (.md files with a repo) ",
+      var: "Tech Tree Skill. 1. Replicate the deep research skill. 2. Add Obsidian
+        support (.md files with a repo). 3. Precog Market compatible (markets'
+        odd related to different tech tree nodes can be fetched and new markets
+        can be propossed using https://forecast-os.com/). ",
       model: claude-opus-4-8
     } # one-shot skill creator — set var to a description prompt
   install-skill: { enabled: false, schedule: "workflow_dispatch", var: "" } # on-demand — install a community skill pack and open a PR; var: owner/repo [skill...]

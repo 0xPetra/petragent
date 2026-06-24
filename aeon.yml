@@ -66,7 +66,7 @@ skills:
   digest: { enabled: false, schedule: "0 14 * * *" }
   research-brief: { enabled: false, schedule: "0 14 * * *" }
   deep-research: { enabled: true, schedule: "workflow_dispatch", var: "" } # on-demand only — set var to research topic
-  tech-tree: { enabled: true, schedule: "0 14 * * *", var: "" } # on-demand — map a tech domain into an Obsidian vault (vault/<slug>/) with deep-research nodes + Precog/Polymarket odds & draft market proposals; var: domain (+ --depth, --nodes)
+  tech-tree: { enabled: true, schedule: "0 14 * * *", var: "", model: claude-opus-4-8 } # on-demand — map a tech domain into an Obsidian vault (vault/<slug>/) with deep-research nodes + Precog/Polymarket odds & draft market proposals; var: domain (+ --depth, --nodes)
   last30: { enabled: false, schedule: "workflow_dispatch", var: "" } # on-demand — cross-platform 30-day social research
   paper-pick: { enabled: false, schedule: "0 14 * * *" }
   search-skill: { enabled: false, schedule: "0 14 * * *" }

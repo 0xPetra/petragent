@@ -1,0 +1,159 @@
+{
+  "root": "card_main",
+  "state": {},
+  "elements": {
+    "card_main": {
+      "type": "Card",
+      "props": {
+        "title": "self-improve"
+      },
+      "children": [
+        "heading_main",
+        "text_summary",
+        "separator1",
+        "section_bug",
+        "separator2",
+        "section_fix",
+        "separator3",
+        "section_deployment"
+      ]
+    },
+    "heading_main": {
+      "type": "Heading",
+      "props": {
+        "text": "Fixed heartbeat status-page bug",
+        "level": "h2"
+      },
+      "children": []
+    },
+    "text_summary": {
+      "type": "Text",
+      "props": {
+        "text": "Resolved critical inconsistency between heartbeat cadence configuration and status page display.",
+        "variant": "lead"
+      },
+      "children": []
+    },
+    "separator1": {
+      "type": "Separator",
+      "props": {
+        "orientation": "horizontal"
+      },
+      "children": []
+    },
+    "section_bug": {
+      "type": "Stack",
+      "props": {
+        "direction": "vertical",
+        "gap": "md"
+      },
+      "children": [
+        "heading_bug",
+        "alert_bug"
+      ]
+    },
+    "heading_bug": {
+      "type": "Heading",
+      "props": {
+        "text": "The Bug",
+        "level": "h3"
+      },
+      "children": []
+    },
+    "alert_bug": {
+      "type": "Alert",
+      "props": {
+        "title": "Hardcoded status page messaging caused misrepresentation",
+        "message": "Status page hardcoded '3× daily / ~8h stale' but aeon.yml schedules heartbeat 1×/day at 14:00 UTC. This would cause the public status page to lie about cadence and mark the agent perma-stale within hours of every run.",
+        "type": "warning"
+      },
+      "children": []
+    },
+    "separator2": {
+      "type": "Separator",
+      "props": {
+        "orientation": "horizontal"
+      },
+      "children": []
+    },
+    "section_fix": {
+      "type": "Stack",
+      "props": {
+        "direction": "vertical",
+        "gap": "md"
+      },
+      "children": [
+        "heading_fix",
+        "text_fix"
+      ]
+    },
+    "heading_fix": {
+      "type": "Heading",
+      "props": {
+        "text": "The Fix",
+        "level": "h3"
+      },
+      "children": []
+    },
+    "text_fix": {
+      "type": "Text",
+      "props": {
+        "text": "Replaced hardcoded status page messaging with a derive-from-aeon.yml instruction. Status page now dynamically reflects the actual heartbeat schedule configured in aeon.yml.",
+        "variant": "body"
+      },
+      "children": []
+    },
+    "separator3": {
+      "type": "Separator",
+      "props": {
+        "orientation": "horizontal"
+      },
+      "children": []
+    },
+    "section_deployment": {
+      "type": "Stack",
+      "props": {
+        "direction": "vertical",
+        "gap": "md"
+      },
+      "children": [
+        "heading_deployment",
+        "text_branch",
+        "text_pr_status",
+        "link_pr"
+      ]
+    },
+    "heading_deployment": {
+      "type": "Heading",
+      "props": {
+        "text": "Branch & Pull Request",
+        "level": "h3"
+      },
+      "children": []
+    },
+    "text_branch": {
+      "type": "Text",
+      "props": {
+        "text": "Branch pushed: fix/self-improve-2026-06-24",
+        "variant": "body"
+      },
+      "children": []
+    },
+    "text_pr_status": {
+      "type": "Text",
+      "props": {
+        "text": "PR creation blocked by org policy (no PAT available). Open manually via the link below.",
+        "variant": "muted"
+      },
+      "children": []
+    },
+    "link_pr": {
+      "type": "Link",
+      "props": {
+        "label": "Open PR for fix/self-improve-2026-06-24",
+        "href": "https://github.com/0xPetra/petragent/pull/new/fix/self-improve-2026-06-24"
+      },
+      "children": []
+    }
+  }
+}

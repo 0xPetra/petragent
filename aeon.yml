@@ -66,7 +66,7 @@ skills:
   digest: { enabled: false, schedule: "0 14 * * *" }
   research-brief: { enabled: false, schedule: "0 14 * * *" }
   deep-research: { enabled: true, schedule: "workflow_dispatch", var: "" } # on-demand only — set var to research topic
-  tech-tree: { enabled: true, schedule: "0 14 * * *", var: "MAP AI RESEARCH" } # on-demand — map a tech domain into an Obsidian vault (vault/<slug>/) with deep-research nodes + Precog/Polymarket odds & draft market proposals; var: domain (+ --depth, --nodes)
+  tech-tree: { enabled: false, schedule: "workflow_dispatch", var: "" } # on-demand — map a tech domain into an Obsidian vault (vault/<slug>/) with deep-research nodes + Precog/Polymarket odds & draft market proposals; var: domain (+ --depth, --nodes)
   last30: { enabled: false, schedule: "workflow_dispatch", var: "" } # on-demand — cross-platform 30-day social research
   paper-pick: { enabled: false, schedule: "0 14 * * *" }
   search-skill: { enabled: false, schedule: "0 14 * * *" }
@@ -253,7 +253,8 @@ skills:
     {
       enabled: true,
       schedule: "workflow_dispatch",
-      var: "",
+      var: "Write a thread on the World Cup and Predicition markets, and Brier Score.
+        And why forecasts for sports usually have bad Brier Score",
       model: claude-opus-4-8
     } # on-demand — write a 5–10 tweet thread in the operator's voice on a topic/URL; picks the sharpest recent signal from memory if var empty
   soul-builder: { enabled: false, schedule: "workflow_dispatch", var: "" } # on-demand — build a SOUL from any mix of sources (X handle, full name, links), drafting soul/SOUL.md + STYLE.md + examples so every content skill speaks in that voice. var: bare X handle, or structured brief "x=handle | name=Full Name | links=url1,url2". Powers the dashboard Soul → Build my soul button. XAI_API_KEY optional (name/links use built-in WebSearch/WebFetch).
@@ -306,7 +307,7 @@ chains:
 
 # Default model for all skills. Override per-run via workflow_dispatch.
 # Options: claude-opus-4-8, claude-fable-5, claude-sonnet-4-6, claude-haiku-4-5-20251001
-model: claude-opus-4-7
+model: claude-opus-4-8
 
 # AI Gateway — route Claude Code requests through an LLM provider.
 #

@@ -44,8 +44,8 @@
     "last_quality_score": 4
   },
   "tech-tree": {
-    "last_dispatch": "2026-06-24T14:54:12Z",
-    "last_status": "failed",
+    "last_dispatch": "2026-06-24T15:46:36Z",
+    "last_status": "dispatched",
     "last_failed": "2026-06-24T14:57:16Z",
     "total_runs": 1,
     "total_successes": 0,

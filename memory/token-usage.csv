@@ -2,3 +2,4 @@ date,skill,model,input_tokens,output_tokens,cache_read,cache_creation
 2026-06-24,soul-builder,claude-sonnet-4-6,3202,12389,1338931,44841
 2026-06-24,create-skill,claude-opus-4-8,3959,31434,2697616,105775
 2026-06-24,tweet-digest,claude-opus-4-7,11,1320,264943,15954
+2026-06-24,tweet-roundup,claude-sonnet-4-6,5876,15237,719010,41980

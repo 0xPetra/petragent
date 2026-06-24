@@ -1,0 +1,105 @@
+{
+  "root": "card_main",
+  "state": {},
+  "elements": {
+    "card_main": {
+      "type": "Card",
+      "props": {
+        "title": "Tweet Roundup — 2026-06-24"
+      },
+      "children": [
+        "source_info",
+        "sep1",
+        "ai_section",
+        "ai_summary",
+        "story_qwen",
+        "sep2",
+        "crypto_section",
+        "crypto_summary",
+        "story_bitcoin",
+        "story_aerodrome"
+      ]
+    },
+    "source_info": {
+      "type": "Text",
+      "props": {
+        "text": "Source: cache:0 websearch:2 failed:1",
+        "variant": "caption"
+      },
+      "children": []
+    },
+    "sep1": {
+      "type": "Separator",
+      "props": {
+        "orientation": "horizontal"
+      },
+      "children": []
+    },
+    "ai_section": {
+      "type": "Heading",
+      "props": {
+        "text": "[AI / LLM / AI Agents]",
+        "level": "h2"
+      },
+      "children": []
+    },
+    "ai_summary": {
+      "type": "Text",
+      "props": {
+        "text": "One major architecture drop; agentic world modeling emerges as the training-time frontier",
+        "variant": "muted"
+      },
+      "children": []
+    },
+    "story_qwen": {
+      "type": "StoryLink",
+      "props": {
+        "title": "Qwen-AgentWorld: a language model trained with environment modeling as a first-class objective, not a post-hoc wrapper. Simulates 7 agent environments natively (MCP, Search, Terminal, SWE, Web, OS, Android). AgentWorldBench open-sourced on HuggingFace. The argument: put the environment inside the model and cross-domain generalization should compound.",
+        "href": "https://x.com/Alibaba_Qwen/status/2069720365442719867",
+        "source": "x.com/Alibaba_Qwen"
+      },
+      "children": []
+    },
+    "sep2": {
+      "type": "Separator",
+      "props": {
+        "orientation": "horizontal"
+      },
+      "children": []
+    },
+    "crypto_section": {
+      "type": "Heading",
+      "props": {
+        "text": "[Crypto / Bitcoin / DeFi]",
+        "level": "h2"
+      },
+      "children": []
+    },
+    "crypto_summary": {
+      "type": "Text",
+      "props": {
+        "text": "Mild sell-off; Base DeFi moving toward mainnet competition",
+        "variant": "muted"
+      },
+      "children": []
+    },
+    "story_bitcoin": {
+      "type": "StoryLink",
+      "props": {
+        "title": "Bitcoin fell 3.83% in the past 24h; no catalyst cited, reads as consolidation pressure",
+        "href": "https://x.com/iproup/status/2069451735240736940",
+        "source": "x.com/iproup"
+      },
+      "children": []
+    },
+    "story_aerodrome": {
+      "type": "StoryLink",
+      "props": {
+        "title": "Aerodrome — top Base DEX, $6.9M/month in fees, zero VC — is unifying with its sister protocol and launching on Ethereum mainnet in July. The ve(3,3) model proved on Base; now competing for $4.9B in mainnet liquidity directly against Uniswap.",
+        "href": "https://x.com/0xchainink/status/2066883582447210617",
+        "source": "x.com/0xchainink"
+      },
+      "children": []
+    }
+  }
+}

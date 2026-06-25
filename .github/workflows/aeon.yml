@@ -1029,7 +1029,7 @@ jobs:
         run: |
           git config user.name "aeonframework"
           git config user.email "aeonframework@proton.me"
-          rm -f ./notify .notify-sent-hashes  # Remove generated notify script + dedup log before committing
+          rm -f ./notify .notify-attempted-hashes .notify-sent-hashes  # Remove generated notify script + notification logs before committing
 
           CURRENT_BRANCH=$(git branch --show-current)
           LABEL="${{ steps.work.outputs.label }}"

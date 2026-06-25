@@ -710,20 +710,59 @@ jobs:
           #!/usr/bin/env bash
           set -euo pipefail
           MSG="$1"
-          if [ -n "${TELEGRAM_BOT_TOKEN:-}" ] && [ -n "${TELEGRAM_CHAT_ID:-}" ]; then
-            curl -sf -X POST "https://api.telegram.org/bot${TELEGRAM_BOT_TOKEN}/sendMessage" \
+          DELIVERED=false
+          DELIVERY_CONFIGURED=false
+          telegram_send() {
+            local payload="$1" mode="$2"
+            local result http body ok desc
+            result=$(curl -sS -w "\n%{http_code}" -X POST "https://api.telegram.org/bot${TELEGRAM_BOT_TOKEN}/sendMessage" \
               -H "Content-Type: application/json" \
-              -d "$(jq -n --arg chat "$TELEGRAM_CHAT_ID" --arg text "$MSG" '{chat_id: $chat, text: $text, parse_mode: "Markdown"}')" > /dev/null || true
+              -d "$payload" 2>&1) || {
+              echo "::warning::Telegram response $mode transport failed: $(printf '%s' "$result" | tail -c 300)" >&2
+              return 1
+            }
+            http=$(printf '%s\n' "$result" | tail -n 1)
+            body=$(printf '%s\n' "$result" | sed '$d')
+            ok=$(printf '%s' "$body" | jq -r '.ok // false' 2>/dev/null || echo "false")
+            if [ "$http" = "200" ] && [ "$ok" = "true" ]; then
+              return 0
+            fi
+            desc=$(printf '%s' "$body" | jq -r '.description // .error_code // empty' 2>/dev/null || true)
+            [ -z "$desc" ] && desc=$(printf '%s' "$body" | tr '\n' ' ' | cut -c1-300)
+            echo "::warning::Telegram response $mode rejected (http=$http ok=$ok): $desc" >&2
+            return 1
+          }
+          if [ -n "${TELEGRAM_BOT_TOKEN:-}" ] && [ -n "${TELEGRAM_CHAT_ID:-}" ]; then
+            DELIVERY_CONFIGURED=true
+            if telegram_send "$(jq -n --arg chat "$TELEGRAM_CHAT_ID" --arg text "$MSG" '{chat_id: $chat, text: $text, parse_mode: "Markdown"}')" "markdown"; then
+              DELIVERED=true
+            elif telegram_send "$(jq -n --arg chat "$TELEGRAM_CHAT_ID" --arg text "$MSG" '{chat_id: $chat, text: $text}')" "plain"; then
+              DELIVERED=true
+            fi
           fi
           if [ -n "${DISCORD_WEBHOOK_URL:-}" ]; then
-            curl -sf -X POST "$DISCORD_WEBHOOK_URL" \
+            DELIVERY_CONFIGURED=true
+            if curl -sf -X POST "$DISCORD_WEBHOOK_URL" \
               -H "Content-Type: application/json" \
-              -d "$(jq -n --arg text "$MSG" '{content: $text}')" > /dev/null || true
+              -d "$(jq -n --arg text "$MSG" '{content: $text}')" > /dev/null; then
+              DELIVERED=true
+            else
+              echo "::warning::Discord response notification failed" >&2
+            fi
           fi
           if [ -n "${SLACK_WEBHOOK_URL:-}" ]; then
-            curl -sf -X POST "$SLACK_WEBHOOK_URL" \
+            DELIVERY_CONFIGURED=true
+            if curl -sf -X POST "$SLACK_WEBHOOK_URL" \
               -H "Content-Type: application/json" \
-              -d "$(jq -n --arg text "$MSG" '{text: $text}')" > /dev/null || true
+              -d "$(jq -n --arg text "$MSG" '{text: $text}')" > /dev/null; then
+              DELIVERED=true
+            else
+              echo "::warning::Slack response notification failed" >&2
+            fi
+          fi
+          if [ "$DELIVERY_CONFIGURED" = "true" ] && [ "$DELIVERED" != "true" ]; then
+            echo "::error::No configured response channel accepted the notification"
+            exit 1
           fi
           NOTIFY_SCRIPT
           chmod +x ./notify

@@ -334,6 +334,7 @@ jobs:
           # (sandbox may block outbound curl during Claude's run)
           # Pre-create .pending-notify/ so the sandbox doesn't block Claude's first write into it
           mkdir -p .pending-notify
+          : > .notify-attempted-hashes
           : > .notify-sent-hashes
 
           cat > ./notify << 'NOTIFY_SCRIPT'
@@ -371,13 +372,14 @@ jobs:
 
           # Dedup within this workflow run — same message never sent twice even if ./notify is called again
           HASH=$(printf '%s' "$MSG" | sha256sum | awk '{print $1}')
-          HASH_FILE=".notify-sent-hashes"
-          touch "$HASH_FILE" 2>/dev/null || true
-          if [ -f "$HASH_FILE" ] && grep -qxF "$HASH" "$HASH_FILE" 2>/dev/null; then
+          ATTEMPT_HASH_FILE=".notify-attempted-hashes"
+          SENT_HASH_FILE=".notify-sent-hashes"
+          touch "$ATTEMPT_HASH_FILE" "$SENT_HASH_FILE" 2>/dev/null || true
+          if [ -f "$ATTEMPT_HASH_FILE" ] && grep -qxF "$HASH" "$ATTEMPT_HASH_FILE" 2>/dev/null; then
             echo "notify: duplicate message (hash ${HASH:0:8}), skipping" >&2
             exit 0
           fi
-          printf '%s\n' "$HASH" >> "$HASH_FILE" 2>/dev/null || true
+          printf '%s\n' "$HASH" >> "$ATTEMPT_HASH_FILE" 2>/dev/null || true
 
           # Always save to .pending-notify/ for post-run delivery (sandbox fallback)
           TS=$(date -u +%s)
@@ -385,6 +387,27 @@ jobs:
 
           # Attempt immediate delivery (may fail in sandbox — post-run step retries)
           DELIVERED=false
+
+          telegram_send() {
+            local payload="$1" mode="$2"
+            local result http body ok desc
+            result=$(curl -sS -w "\n%{http_code}" -X POST "https://api.telegram.org/bot${TELEGRAM_BOT_TOKEN}/sendMessage" \
+              -H "Content-Type: application/json" \
+              -d "$payload" 2>&1) || {
+              echo "::warning::Telegram notify $mode transport failed: $(printf '%s' "$result" | tail -c 300)" >&2
+              return 1
+            }
+            http=$(printf '%s\n' "$result" | tail -n 1)
+            body=$(printf '%s\n' "$result" | sed '$d')
+            ok=$(printf '%s' "$body" | jq -r '.ok // false' 2>/dev/null || echo "false")
+            if [ "$http" = "200" ] && [ "$ok" = "true" ]; then
+              return 0
+            fi
+            desc=$(printf '%s' "$body" | jq -r '.description // .error_code // empty' 2>/dev/null || true)
+            [ -z "$desc" ] && desc=$(printf '%s' "$body" | tr '\n' ' ' | cut -c1-300)
+            echo "::warning::Telegram notify $mode rejected (http=$http ok=$ok): $desc" >&2
+            return 1
+          }
 
           # Telegram: 4096 char limit, strict Markdown parsing
           if [ -n "${TELEGRAM_BOT_TOKEN:-}" ] && [ -n "${TELEGRAM_CHAT_ID:-}" ]; then
@@ -422,24 +445,21 @@ jobs:
               suffix = f"\n\n[{i+1}/{N}]" if N > 1 else ""
               sys.stdout.write(base64.b64encode((c + suffix).encode()).decode() + "\n")
           ')
+            TG_DELIVERED_ALL=true
             while IFS= read -r TG_CHUNK_B64; do
               [ -z "$TG_CHUNK_B64" ] && continue
               TG_MSG=$(printf '%s' "$TG_CHUNK_B64" | base64 -d)
-              TG_RESULT=$(curl -s -w "\n%{http_code}" -X POST "https://api.telegram.org/bot${TELEGRAM_BOT_TOKEN}/sendMessage" \
-                -H "Content-Type: application/json" \
-                -d "$(jq -n --arg chat "$TELEGRAM_CHAT_ID" --arg text "$TG_MSG" '{chat_id: $chat, text: $text, parse_mode: "Markdown"}')" 2>/dev/null) || true
-              TG_HTTP=$(echo "$TG_RESULT" | tail -1)
-              TG_OK=$(echo "$TG_RESULT" | sed '$d' | jq -r '.ok // false' 2>/dev/null || echo "false")
-              if [ "$TG_HTTP" = "200" ] && [ "$TG_OK" = "true" ]; then
-                DELIVERED=true
+              if telegram_send "$(jq -n --arg chat "$TELEGRAM_CHAT_ID" --arg text "$TG_MSG" '{chat_id: $chat, text: $text, parse_mode: "Markdown"}')" "markdown"; then
+                :
+              elif telegram_send "$(jq -n --arg chat "$TELEGRAM_CHAT_ID" --arg text "$TG_MSG" '{chat_id: $chat, text: $text}')" "plain"; then
+                :
               else
-                curl -s -X POST "https://api.telegram.org/bot${TELEGRAM_BOT_TOKEN}/sendMessage" \
-                  -H "Content-Type: application/json" \
-                  -d "$(jq -n --arg chat "$TELEGRAM_CHAT_ID" --arg text "$TG_MSG" '{chat_id: $chat, text: $text}')" > /dev/null 2>&1 && DELIVERED=true || true
+                TG_DELIVERED_ALL=false
               fi
               # Preserve chunk ordering in the Telegram channel
               sleep 0.3
             done <<< "$TG_CHUNKS_B64"
+            [ "$TG_DELIVERED_ALL" = "true" ] && DELIVERED=true
           fi
 
           if [ -n "${DISCORD_WEBHOOK_URL:-}" ]; then
@@ -478,6 +498,7 @@ jobs:
 
           # Remove pending file if immediate delivery succeeded (prevents double-send)
           if [ "$DELIVERED" = "true" ]; then
+            printf '%s\n' "$HASH" >> "$SENT_HASH_FILE" 2>/dev/null || true
             rm -f ".pending-notify/${TS}.md"
           fi
           NOTIFY_SCRIPT
@@ -887,6 +908,29 @@ jobs:
           fi
           HASH_FILE=".notify-sent-hashes"
           touch "$HASH_FILE"
+          DELIVERY_FAILED=false
+
+          telegram_send_pending() {
+            local payload="$1"
+            local result http body ok desc
+            result=$(curl -sS -w "\n%{http_code}" -X POST "https://api.telegram.org/bot${TELEGRAM_BOT_TOKEN}/sendMessage" \
+              -H "Content-Type: application/json" \
+              -d "$payload" 2>&1) || {
+              echo "::warning::Telegram pending notification transport failed: $(printf '%s' "$result" | tail -c 300)" >&2
+              return 1
+            }
+            http=$(printf '%s\n' "$result" | tail -n 1)
+            body=$(printf '%s\n' "$result" | sed '$d')
+            ok=$(printf '%s' "$body" | jq -r '.ok // false' 2>/dev/null || echo "false")
+            if [ "$http" = "200" ] && [ "$ok" = "true" ]; then
+              return 0
+            fi
+            desc=$(printf '%s' "$body" | jq -r '.description // .error_code // empty' 2>/dev/null || true)
+            [ -z "$desc" ] && desc=$(printf '%s' "$body" | tr '\n' ' ' | cut -c1-300)
+            echo "::warning::Telegram pending notification rejected (http=$http ok=$ok): $desc" >&2
+            return 1
+          }
+
           for pending in .pending-notify/*.md; do
             [ -f "$pending" ] || continue
             MSG=$(cat "$pending")
@@ -909,31 +953,56 @@ jobs:
               echo "Skipping pending duplicate (${HASH:0:8}): $(basename "$pending")"
               continue
             fi
-            printf '%s\n' "$HASH" >> "$HASH_FILE"
 
             echo "Delivering pending notification: $(basename "$pending")"
+            PENDING_DELIVERED=false
             # Telegram
             if [ -n "${TELEGRAM_BOT_TOKEN:-}" ] && [ -n "${TELEGRAM_CHAT_ID:-}" ]; then
               TG_MSG="$MSG"
               [ ${#TG_MSG} -gt 4000 ] && TG_MSG="${TG_MSG:0:3990}...(truncated)"
-              curl -s -X POST "https://api.telegram.org/bot${TELEGRAM_BOT_TOKEN}/sendMessage" \
-                -H "Content-Type: application/json" \
-                -d "$(jq -n --arg chat "$TELEGRAM_CHAT_ID" --arg text "$TG_MSG" '{chat_id: $chat, text: $text}')" > /dev/null 2>&1 || true
+              if telegram_send_pending "$(jq -n --arg chat "$TELEGRAM_CHAT_ID" --arg text "$TG_MSG" '{chat_id: $chat, text: $text}')"; then
+                PENDING_DELIVERED=true
+              else
+                DELIVERY_FAILED=true
+              fi
             fi
             # Discord
             if [ -n "${DISCORD_WEBHOOK_URL:-}" ]; then
-              curl -sf -X POST "$DISCORD_WEBHOOK_URL" \
+              if curl -sf -X POST "$DISCORD_WEBHOOK_URL" \
                 -H "Content-Type: application/json" \
-                -d "$(jq -n --arg text "$MSG" '{content: $text}')" > /dev/null 2>&1 || true
+                -d "$(jq -n --arg text "$MSG" '{content: $text}')" > /dev/null 2>&1; then
+                PENDING_DELIVERED=true
+              else
+                DELIVERY_FAILED=true
+                echo "::warning::Discord pending notification failed" >&2
+              fi
             fi
             # Slack
             if [ -n "${SLACK_WEBHOOK_URL:-}" ]; then
-              curl -sf -X POST "$SLACK_WEBHOOK_URL" \
+              if curl -sf -X POST "$SLACK_WEBHOOK_URL" \
                 -H "Content-Type: application/json" \
-                -d "$(jq -n --arg text "$MSG" '{text: $text}')" > /dev/null 2>&1 || true
+                -d "$(jq -n --arg text "$MSG" '{text: $text}')" > /dev/null 2>&1; then
+                PENDING_DELIVERED=true
+              else
+                DELIVERY_FAILED=true
+                echo "::warning::Slack pending notification failed" >&2
+              fi
+            fi
+            if [ "$PENDING_DELIVERED" = "true" ]; then
+              printf '%s\n' "$HASH" >> "$HASH_FILE"
+              rm -f "$pending"
+            else
+              echo "::warning::No configured notification channel accepted $(basename "$pending")" >&2
+              DELIVERY_FAILED=true
             fi
           done
-          rm -rf .pending-notify
+          if [ "$DELIVERY_FAILED" = "true" ]; then
+            echo "::error::One or more pending notifications failed to deliver"
+            exit 1
+          fi
+          if [ -z "$(ls -A .pending-notify/*.md 2>/dev/null)" ]; then
+            rm -rf .pending-notify
+          fi
 
       - name: Run post-process scripts
         if: steps.work.outputs.mode != '' && steps.run.outcome == 'success'

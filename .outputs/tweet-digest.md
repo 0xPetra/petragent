@@ -1,10 +1,15 @@
-TWEET_DIGEST_NO_CONFIG.
-
 ## Summary
 
-- Read `skills/tweet-digest/SKILL.md` and checked for the required config file `memory/topics/tracked-accounts.yml`.
-- The config file does not exist (`memory/topics/` contains only `milestone-dispatch.json` and `skill-spotlight.md`).
-- Per the skill spec, exited with `TWEET_DIGEST_NO_CONFIG` and sent no notification.
-- Appended a log entry to `memory/logs/2026-06-24.md`.
+- **Result:** `TWEET_DIGEST_NO_CONFIG` — no notification sent.
+- **Reason:** `memory/topics/tracked-accounts.yml` does not exist. The skill requires this file to know which X/Twitter accounts to fetch.
+- **Logged:** `memory/logs/2026-06-25.md`
 
-**Follow-up:** To activate this skill, create `memory/topics/tracked-accounts.yml` with the X/Twitter handles to track (see the YAML schema in the SKILL.md).
+To enable this skill, create `memory/topics/tracked-accounts.yml` with at least one account entry:
+
+```yaml
+accounts:
+  - handle: vitalikbuterin
+    why: ethereum core thinking
+  - handle: jessepollak
+    why: Base ecosystem
+```

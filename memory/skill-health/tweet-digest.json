@@ -1,13 +1,17 @@
 {
   "skill": "tweet-digest",
-  "last_analyzed": "2026-06-24T14:55:17Z",
+  "last_analyzed": "2026-06-25T05:03:37Z",
   "quality_score": 3,
-  "assessment": "Skill gracefully handled missing config with correct error code and clear follow-up instructions.",
+  "assessment": "Skill ran and gracefully handled missing configuration — detected the issue, logged it, and provided clear setup instructions, but produced no actual output",
   "flags": [],
   "avg_score": 3,
   "history": [
     {
       "date": "2026-06-24",
+      "score": 3
+    },
+    {
+      "date": "2026-06-25",
       "score": 3
     }
   ]

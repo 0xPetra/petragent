@@ -1,0 +1,307 @@
+{
+  "root": "main-card",
+  "state": {},
+  "elements": {
+    "main-card": {
+      "type": "Card",
+      "props": {
+        "title": "Tweet Roundup — 2026-06-25"
+      },
+      "children": [
+        "metadata",
+        "sep-1",
+        "ai-section",
+        "sep-2",
+        "crypto-section",
+        "sep-3",
+        "tech-section"
+      ]
+    },
+    "metadata": {
+      "type": "Text",
+      "props": {
+        "text": "Source: cache:0 websearch:3 failed:0",
+        "variant": "caption"
+      }
+    },
+    "sep-1": {
+      "type": "Separator",
+      "props": {
+        "orientation": "horizontal"
+      }
+    },
+    "ai-section": {
+      "type": "Stack",
+      "props": {
+        "direction": "vertical",
+        "gap": "md"
+      },
+      "children": [
+        "ai-h2",
+        "ai-desc",
+        "cs-h3",
+        "tweet-1",
+        "wf-h3",
+        "tweet-2",
+        "pa-h3",
+        "tweet-3"
+      ]
+    },
+    "ai-h2": {
+      "type": "Heading",
+      "props": {
+        "text": "AI / LLM / AI Agents",
+        "level": "h2"
+      }
+    },
+    "ai-desc": {
+      "type": "Text",
+      "props": {
+        "text": "hardware and hiring front-running the noise; architecture depth rising underneath",
+        "variant": "muted"
+      }
+    },
+    "cs-h3": {
+      "type": "Heading",
+      "props": {
+        "text": "Custom silicon",
+        "level": "h3"
+      }
+    },
+    "tweet-1": {
+      "type": "Stack",
+      "props": {
+        "direction": "vertical",
+        "gap": "sm"
+      },
+      "children": [
+        "tweetcard-1",
+        "link-1"
+      ]
+    },
+    "tweetcard-1": {
+      "type": "TweetCard",
+      "props": {
+        "author": "MT Live",
+        "handle": "MTSlive",
+        "text": "OpenAI and Broadcom announced Jalapeño, a custom LLM chip built from scratch to production in nine months. Real silicon."
+      }
+    },
+    "link-1": {
+      "type": "Link",
+      "props": {
+        "label": "View",
+        "href": "https://x.com/MTSlive/status/2069843756975837374"
+      }
+    },
+    "wf-h3": {
+      "type": "Heading",
+      "props": {
+        "text": "Workforce",
+        "level": "h3"
+      }
+    },
+    "tweet-2": {
+      "type": "Stack",
+      "props": {
+        "direction": "vertical",
+        "gap": "sm"
+      },
+      "children": [
+        "tweetcard-2",
+        "link-2"
+      ]
+    },
+    "tweetcard-2": {
+      "type": "TweetCard",
+      "props": {
+        "author": "Suraj Sharma",
+        "handle": "suraj_sharma14",
+        "text": "Agentic AI Engineer is the #1 most in-demand role in June 2026. Companies are replacing chatbots with autonomous, self-correcting agents; multi-agent orchestration is the key skill."
+      }
+    },
+    "link-2": {
+      "type": "Link",
+      "props": {
+        "label": "View",
+        "href": "https://x.com/suraj_sharma14/status/2066083230239863081"
+      }
+    },
+    "pa-h3": {
+      "type": "Heading",
+      "props": {
+        "text": "Production architecture",
+        "level": "h3"
+      }
+    },
+    "tweet-3": {
+      "type": "Stack",
+      "props": {
+        "direction": "vertical",
+        "gap": "sm"
+      },
+      "children": [
+        "tweetcard-3",
+        "link-3"
+      ]
+    },
+    "tweetcard-3": {
+      "type": "TweetCard",
+      "props": {
+        "author": "Elora Khatun",
+        "handle": "elora_khatun",
+        "text": "Building a production AI agent means designing 8 system layers. The LLM is one of them."
+      }
+    },
+    "link-3": {
+      "type": "Link",
+      "props": {
+        "label": "View",
+        "href": "https://x.com/elora_khatun/status/2061630565972103214"
+      }
+    },
+    "sep-2": {
+      "type": "Separator",
+      "props": {
+        "orientation": "horizontal"
+      }
+    },
+    "crypto-section": {
+      "type": "Stack",
+      "props": {
+        "direction": "vertical",
+        "gap": "md"
+      },
+      "children": [
+        "crypto-h2",
+        "crypto-desc",
+        "tweet-4"
+      ]
+    },
+    "crypto-h2": {
+      "type": "Heading",
+      "props": {
+        "text": "Crypto / Bitcoin / DeFi",
+        "level": "h2"
+      }
+    },
+    "crypto-desc": {
+      "type": "Text",
+      "props": {
+        "text": "BTC defending support while alts bleed — cautious market",
+        "variant": "muted"
+      }
+    },
+    "tweet-4": {
+      "type": "Stack",
+      "props": {
+        "direction": "vertical",
+        "gap": "sm"
+      },
+      "children": [
+        "tweetcard-4",
+        "link-4"
+      ]
+    },
+    "tweetcard-4": {
+      "type": "TweetCard",
+      "props": {
+        "author": "ZARGATES",
+        "handle": "ZARGATES",
+        "text": "BTC held $62k support after touching lows near $62,005, closing June 23 down ~2.7%. Altcoins broadly dropped 4–8%+."
+      }
+    },
+    "link-4": {
+      "type": "Link",
+      "props": {
+        "label": "View",
+        "href": "https://x.com/ZARGATES/status/2069369566824996888"
+      }
+    },
+    "sep-3": {
+      "type": "Separator",
+      "props": {
+        "orientation": "horizontal"
+      }
+    },
+    "tech-section": {
+      "type": "Stack",
+      "props": {
+        "direction": "vertical",
+        "gap": "md"
+      },
+      "children": [
+        "tech-h2",
+        "tech-desc",
+        "tweet-5",
+        "tweet-6"
+      ]
+    },
+    "tech-h2": {
+      "type": "Heading",
+      "props": {
+        "text": "Technology / Startups / Open Source",
+        "level": "h2"
+      }
+    },
+    "tech-desc": {
+      "type": "Text",
+      "props": {
+        "text": "builder signal: YC activity and new open-source agent tooling",
+        "variant": "muted"
+      }
+    },
+    "tweet-5": {
+      "type": "Stack",
+      "props": {
+        "direction": "vertical",
+        "gap": "sm"
+      },
+      "children": [
+        "tweetcard-5",
+        "link-5"
+      ]
+    },
+    "tweetcard-5": {
+      "type": "TweetCard",
+      "props": {
+        "author": "TechCrunch",
+        "handle": "TechCrunch",
+        "text": "11 standout startups surfaced at YC Demo Day this cycle, signaling continued founder activity."
+      }
+    },
+    "link-5": {
+      "type": "Link",
+      "props": {
+        "label": "View",
+        "href": "https://x.com/TechCrunch/status/2067697760896459048"
+      }
+    },
+    "tweet-6": {
+      "type": "Stack",
+      "props": {
+        "direction": "vertical",
+        "gap": "sm"
+      },
+      "children": [
+        "tweetcard-6",
+        "link-6"
+      ]
+    },
+    "tweetcard-6": {
+      "type": "TweetCard",
+      "props": {
+        "author": "Matei Zaharia",
+        "handle": "matei_zaharia",
+        "text": "Omnigent: an open-source meta-harness for AI agents, lets you compose multi-agent coding pipelines on top of existing frameworks."
+      }
+    },
+    "link-6": {
+      "type": "Link",
+      "props": {
+        "label": "View",
+        "href": "https://x.com/matei_zaharia/status/2065827057624605146"
+      }
+    }
+  }
+}

@@ -113,7 +113,7 @@ skills:
   list-digest: { enabled: false, schedule: "0 17 * * *" }
   reply-maker: { enabled: false, schedule: "0 17 * * *" }
   remix-tweets: { enabled: false, schedule: "30 17 * * *" } # 10 rephrased versions of random past tweets
-  tweet-roundup: { enabled: true, schedule: "0 */6 * * *", var: "", model: claude-opus-4-8 } # latest tweets on configurable topics
+  tweet-roundup: { enabled: true, schedule: "0 */6 * * *", var: "", model: "claude-sonnet-4-6" } # latest tweets on configurable topics
   agent-buzz: { enabled: false, schedule: "30 17 * * *" } # top AI agent tweets by influence
   farcaster-digest: { enabled: false, schedule: "0 17 * * *" } # trending Farcaster casts
   vibecoding-digest: { enabled: false, schedule: "30 17 * * *" } # r/vibecoding trending posts
@@ -263,7 +263,7 @@ skills:
   # Sports
 
   # --- Fallback (must be last) ---
-  heartbeat: { enabled: true, schedule: "0 10 * * *" }
+  heartbeat: { enabled: true, schedule: "0 10 * * *", model: "claude-haiku-4-5-20251001" }
 
 # Reactive triggers — event-driven skill dispatch based on cron-state.json conditions.
 # Skills with schedule: "reactive" are never cron-matched. Instead, the scheduler

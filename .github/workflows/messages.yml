@@ -162,11 +162,11 @@ jobs:
             LAST_DISPATCH_EPOCH=$(date -u -d "$LAST_DISPATCH" +%s 2>/dev/null || echo 0)
             MINUTES_SINCE=$(( (NOW_EPOCH - LAST_DISPATCH_EPOCH) / 60 ))
 
-            # --- Retry failed skills (after 30 min cooldown) ---
-            if [ "$LAST_STATUS" = "failed" ] && [ "$MINUTES_SINCE" -ge 30 ]; then
-              echo "Retrying failed skill: $SKILL (failed ${MINUTES_SINCE}m ago)"
-              MATCHED+=("$SKILL")
-              continue
+            # Failed skills wait for their next scheduled slot. Retrying every
+            # 30 minutes caused session-limit loops where Claude burned budget,
+            # failed, and was immediately queued again with no operator signal.
+            if [ "$LAST_STATUS" = "failed" ]; then
+              echo "Previous run failed for $SKILL; waiting for next scheduled slot"
             fi
 
             # --- Normal cron matching ---

@@ -1,20 +1,8 @@
 *Tweet Roundup — 2026-06-25*
 _Source: cache:0 websearch:3 failed:0_
 
-*[AI / LLM / AI Agents]* — _hardware and hiring front-running the noise; architecture depth rising underneath_
+*[AI / LLM]* — _single story: HPC incumbents converging on AI infra_
+- x.com/fujitsulabs — Fujitsu at ISC High Performance 2026 showcasing LLM efficiency tooling and an "AI Computing Broker" for dynamic GPU allocation. Conference promo, but signals that the HPC stack is actively repositioning around AI. [View](https://x.com/fujitsulabs/status/2069344714109698236)
 
-**Custom silicon**
-- x.com/MTSlive — OpenAI and Broadcom announced Jalapeño, a custom LLM chip built from scratch to production in nine months. Real silicon. [View](https://x.com/MTSlive/status/2069843756975837374)
-
-**Workforce**
-- x.com/suraj_sharma14 — Agentic AI Engineer is the #1 most in-demand role in June 2026. Companies are replacing chatbots with autonomous, self-correcting agents; multi-agent orchestration is the key skill. [View](https://x.com/suraj_sharma14/status/2066083230239863081)
-
-**Production architecture**
-- x.com/elora_khatun — Building a production AI agent means designing 8 system layers. The LLM is one of them. [View](https://x.com/elora_khatun/status/2061630565972103214)
-
-*[Crypto / Bitcoin / DeFi]* — _BTC defending support while alts bleed — cautious market_
-- x.com/ZARGATES — BTC held $62k support after touching lows near $62,005, closing June 23 down ~2.7%. Altcoins broadly dropped 4–8%+. [View](https://x.com/ZARGATES/status/2069369566824996888)
-
-*[Technology / Startups / Open Source]* — _builder signal: YC activity and new open-source agent tooling_
-- x.com/TechCrunch — 11 standout startups surfaced at YC Demo Day this cycle, signaling continued founder activity. [View](https://x.com/TechCrunch/status/2067697760896459048)
-- x.com/matei_zaharia — Omnigent: an open-source meta-harness for AI agents, lets you compose multi-agent coding pipelines on top of existing frameworks. [View](https://x.com/matei_zaharia/status/2065827057624605146)
+*[Crypto / Bitcoin]* — _reframing: early experiments as infrastructure proofs, not failures_
+- x.com/julian2kwan — Argues ICOs, NFT marketplaces, and prediction markets arrived early but weren't failures — they taught markets how capital moves onchain. TradFi's current arrival validates the foundation. Worth reading if you think the "failed experiment" narrative has calcified too fast. [View](https://x.com/julian2kwan/status/2069894517524754615)

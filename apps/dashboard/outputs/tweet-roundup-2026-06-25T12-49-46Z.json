@@ -1,0 +1,104 @@
+{
+  "root": "card-main",
+  "state": {},
+  "elements": {
+    "card-main": {
+      "type": "Card",
+      "props": {
+        "title": "Tweet Roundup — 2026-06-25"
+      },
+      "children": [
+        "text-source",
+        "sep-1",
+        "stack-item1",
+        "sep-2",
+        "stack-item2"
+      ]
+    },
+    "text-source": {
+      "type": "Text",
+      "props": {
+        "text": "Source: cache:0 websearch:3 failed:0",
+        "variant": "caption"
+      }
+    },
+    "sep-1": {
+      "type": "Separator",
+      "props": {
+        "orientation": "horizontal"
+      }
+    },
+    "stack-item1": {
+      "type": "Stack",
+      "props": {
+        "direction": "vertical",
+        "gap": "sm"
+      },
+      "children": [
+        "badge-ai",
+        "story-ai",
+        "text-ai-desc"
+      ]
+    },
+    "badge-ai": {
+      "type": "Badge",
+      "props": {
+        "text": "AI / LLM",
+        "variant": "default"
+      }
+    },
+    "story-ai": {
+      "type": "StoryLink",
+      "props": {
+        "title": "HPC incumbents converging on AI infra",
+        "href": "https://x.com/fujitsulabs/status/2069344714109698236",
+        "source": "x.com/fujitsulabs"
+      }
+    },
+    "text-ai-desc": {
+      "type": "Text",
+      "props": {
+        "text": "Fujitsu at ISC High Performance 2026 showcasing LLM efficiency tooling and an \"AI Computing Broker\" for dynamic GPU allocation. Conference promo, but signals that the HPC stack is actively repositioning around AI."
+      }
+    },
+    "sep-2": {
+      "type": "Separator",
+      "props": {
+        "orientation": "horizontal"
+      }
+    },
+    "stack-item2": {
+      "type": "Stack",
+      "props": {
+        "direction": "vertical",
+        "gap": "sm"
+      },
+      "children": [
+        "badge-crypto",
+        "story-crypto",
+        "text-crypto-desc"
+      ]
+    },
+    "badge-crypto": {
+      "type": "Badge",
+      "props": {
+        "text": "Crypto / Bitcoin",
+        "variant": "default"
+      }
+    },
+    "story-crypto": {
+      "type": "StoryLink",
+      "props": {
+        "title": "Early experiments as infrastructure proofs, not failures",
+        "href": "https://x.com/julian2kwan/status/2069894517524754615",
+        "source": "x.com/julian2kwan"
+      }
+    },
+    "text-crypto-desc": {
+      "type": "Text",
+      "props": {
+        "text": "Argues ICOs, NFT marketplaces, and prediction markets arrived early but weren't failures — they taught markets how capital moves onchain. TradFi's current arrival validates the foundation. Worth reading if you think the \"failed experiment\" narrative has calcified too fast."
+      }
+    }
+  }
+}

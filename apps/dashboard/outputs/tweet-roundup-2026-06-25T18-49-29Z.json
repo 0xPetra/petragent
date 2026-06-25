@@ -1,0 +1,191 @@
+{
+  "root": "card-main",
+  "state": {},
+  "elements": {
+    "card-main": {
+      "type": "Card",
+      "props": {
+        "title": "Tweet Roundup — 2026-06-25"
+      },
+      "children": [
+        "source-info",
+        "sep-1",
+        "section-ai",
+        "sep-2",
+        "section-crypto",
+        "sep-3",
+        "section-tech"
+      ]
+    },
+    "source-info": {
+      "type": "Text",
+      "props": {
+        "text": "Source: cache:0 websearch:6 failed:0",
+        "variant": "caption"
+      },
+      "children": []
+    },
+    "sep-1": {
+      "type": "Separator",
+      "props": {
+        "orientation": "horizontal"
+      },
+      "children": []
+    },
+    "section-ai": {
+      "type": "Stack",
+      "props": {
+        "direction": "vertical",
+        "gap": "md"
+      },
+      "children": [
+        "ai-header",
+        "ai-desc",
+        "ai-item1",
+        "ai-item2"
+      ]
+    },
+    "ai-header": {
+      "type": "Heading",
+      "props": {
+        "text": "AI / LLM",
+        "level": "h2"
+      },
+      "children": []
+    },
+    "ai-desc": {
+      "type": "Text",
+      "props": {
+        "text": "AI product maturation — funding for monitoring tools, pruning of experimental features",
+        "variant": "muted"
+      },
+      "children": []
+    },
+    "ai-item1": {
+      "type": "StoryLink",
+      "props": {
+        "title": "Sazabi raised $8M to build observability tooling for AI coding agent workflows (Cursor, Claude Code, Codex), filling a monitoring gap those tools exposed",
+        "href": "https://x.com/Scobleizer/status/2070161328518332545",
+        "source": "x.com/Scobleizer"
+      },
+      "children": []
+    },
+    "ai-item2": {
+      "type": "StoryLink",
+      "props": {
+        "title": "Notion is shutting down its AI-powered email client",
+        "href": "https://x.com/9to5mac/status/2070181589057679851",
+        "source": "x.com/9to5mac"
+      },
+      "children": []
+    },
+    "sep-2": {
+      "type": "Separator",
+      "props": {
+        "orientation": "horizontal"
+      },
+      "children": []
+    },
+    "section-crypto": {
+      "type": "Stack",
+      "props": {
+        "direction": "vertical",
+        "gap": "md"
+      },
+      "children": [
+        "crypto-header",
+        "crypto-desc",
+        "crypto-item1",
+        "crypto-item2"
+      ]
+    },
+    "crypto-header": {
+      "type": "Heading",
+      "props": {
+        "text": "Crypto / Bitcoin",
+        "level": "h2"
+      },
+      "children": []
+    },
+    "crypto-desc": {
+      "type": "Text",
+      "props": {
+        "text": "consolidation chatter — BTC range-bound around $62k, cycle theory in debate",
+        "variant": "muted"
+      },
+      "children": []
+    },
+    "crypto-item1": {
+      "type": "StoryLink",
+      "props": {
+        "title": "Bitcoin at $62,735 with neutral Google Trends search interest (50/100) on June 24, signaling market in wait-and-see mode",
+        "href": "https://x.com/BCryptodinero/status/2069827912673448036",
+        "source": "x.com/BCryptodinero"
+      },
+      "children": []
+    },
+    "crypto-item2": {
+      "type": "StoryLink",
+      "props": {
+        "title": "argues Bitcoin's 4-year halving cycles remain the dominant pricing framework in 2026",
+        "href": "https://x.com/levelsio/status/2069952884548993073",
+        "source": "x.com/levelsio"
+      },
+      "children": []
+    },
+    "sep-3": {
+      "type": "Separator",
+      "props": {
+        "orientation": "horizontal"
+      },
+      "children": []
+    },
+    "section-tech": {
+      "type": "Stack",
+      "props": {
+        "direction": "vertical",
+        "gap": "md"
+      },
+      "children": [
+        "tech-header",
+        "tech-desc",
+        "tech-item1",
+        "tech-item2"
+      ]
+    },
+    "tech-header": {
+      "type": "Heading",
+      "props": {
+        "text": "Technology / Startups",
+        "level": "h2"
+      },
+      "children": []
+    },
+    "tech-desc": {
+      "type": "Text",
+      "props": {
+        "text": "Chinese AI models land on AWS Bedrock in production framing",
+        "variant": "muted"
+      },
+      "children": []
+    },
+    "tech-item1": {
+      "type": "StoryLink",
+      "props": {
+        "title": "AWS China Summit: DeepSeek, MiniMax, Kimi, Qwen, and GLM all now on Amazon Bedrock — framed as production-grade Agentic AI infrastructure, not demo showcase",
+        "href": "https://x.com/TechBuzzChina/status/2069812817339805863",
+        "source": "x.com/TechBuzzChina"
+      },
+      "children": []
+    },
+    "tech-item2": {
+      "type": "StoryLink",
+      "props": {
+        "title": "oracomputing raised €3.5M in seed funding",
+        "href": "https://x.com/TFNBreakingNews/status/2069686796255207575",
+        "source": "x.com/TFNBreakingNews"
+      },
+      "children": []
+    }
+  }
+}

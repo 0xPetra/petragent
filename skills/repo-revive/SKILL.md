@@ -37,7 +37,7 @@ This skill reads two operator-controlled files:
 
   ## Current models (suggest these as replacements)
   - claude-sonnet-4-6
-  - claude-opus-4-7
+  - claude-opus-4-8
   - gpt-4o
   - gemini-2.0
   ```

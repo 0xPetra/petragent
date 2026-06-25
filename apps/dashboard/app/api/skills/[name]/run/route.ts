@@ -2,7 +2,7 @@ import { NextResponse } from 'next/server'
 import { execFileSync } from 'child_process'
 import { REPO_ROOT, ensureActionsCanOpenPRs } from '@/lib/gh'
 import { errorResponse } from '@/lib/http'
-import { sanitizeModel } from '@/lib/dispatch'
+import { sanitizeModel, sanitizeSkillVar } from '@/lib/dispatch'
 
 export async function POST(
   request: Request,
@@ -22,7 +22,7 @@ export async function POST(
     try {
       const body = await request.json() as { var?: string; model?: string }
       if (body.var && typeof body.var === 'string') {
-        skillVar = body.var.replace(/[^a-zA-Z0-9_ .\-/#@]/g, '')
+        skillVar = sanitizeSkillVar(body.var)
       }
       if (body.model && typeof body.model === 'string') {
         model = sanitizeModel(body.model)

@@ -66,7 +66,7 @@ Today is ${today}. Your task is to generate a complete, production-ready skill f
    - **Variable behavior** — what `${var}` controls; what happens when empty (sane default OR clean abort with notify).
    - **Steps** — 4-8 numbered, following the standard pattern: read context → fetch/search → process/analyze → write output → log → notify.
    - **Schedule suggestion** — choose a cron slot. Read existing schedules in `aeon.yml`; avoid co-scheduling at the same minute as heavy skills (article, repo-scanner, deep-research, telegram-digest) unless the new skill is lightweight (<30s expected). Prefer a `:30` minute offset if the natural hour is already crowded.
-   - **Model** — default `claude-opus-4-7`. Pick `claude-sonnet-4-6` if the skill is high-frequency aggregation/digestion (cost optimization). Document the choice in the PR body.
+   - **Model** — default `claude-opus-4-8`. Pick `claude-sonnet-4-6` if the skill is high-frequency aggregation/digestion (cost optimization). Document the choice in the PR body.
    - **Category** — the pack the skill joins. Pick one: `research` `dev` `crypto` `onchain-security` `social` `productivity` `meta`. (`core` and `fleet` are curated in `packs.config.json`, not chosen here.) If none fits, omit it and the skill lands in the **Lab** catch-all for later triage. See `docs/skill-packs.md`.
 
 6. **Write the SKILL.md draft** at `skills/{skill-name}/SKILL.md` with this exact structure:

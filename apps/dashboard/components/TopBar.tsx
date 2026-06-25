@@ -2,9 +2,11 @@ import type { Skill, GatewayProvider } from '../lib/types'
 import { MODELS, PACK_BY_KEY } from '../lib/constants'
 import { displayName } from '../lib/utils'
 
+type DashboardView = 'hq' | 'packs' | 'secrets' | 'strategy' | 'tech-tree' | 'mcp' | 'soul'
+
 interface TopBarProps {
   skill: Skill | null
-  view: 'hq' | 'packs' | 'secrets' | 'strategy' | 'mcp' | 'soul'
+  view: DashboardView
   repo: string
   model: string
   gateway: GatewayProvider
@@ -28,7 +30,7 @@ export function TopBar({ skill, view, repo, model, gateway, hasModelKey, authLoa
     <div className="h-14 border-b border-[rgba(250,250,250,0.10)] flex items-center justify-between px-5 shrink-0 bg-aeon-bg">
       <div className="flex items-center gap-3 min-w-0 flex-1">
         <span className="font-display text-lg uppercase tracking-wide text-aeon-fg truncate">
-          {skill ? displayName(skill.name) : view === 'packs' ? 'Packs' : view === 'secrets' ? 'Settings' : view === 'strategy' ? 'Strategy' : view === 'mcp' ? 'MCP' : view === 'soul' ? 'Soul' : `${repo ? repo.split('/').pop() : 'Aeon'} HQ`}
+          {skill ? displayName(skill.name) : view === 'packs' ? 'Packs' : view === 'secrets' ? 'Settings' : view === 'strategy' ? 'Strategy' : view === 'tech-tree' ? 'Tech Tree' : view === 'mcp' ? 'MCP' : view === 'soul' ? 'Soul' : `${repo ? repo.split('/').pop() : 'Aeon'} HQ`}
         </span>
         {skill && dept && (
           <span

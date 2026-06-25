@@ -14,6 +14,17 @@ import { deleteDirectory } from '@/lib/github'
 import { parseFrontmatter } from '@/lib/frontmatter'
 import type { Skill } from '@/lib/types'
 
+const PACK_BY_CATEGORY: Record<string, { key: string; name: string }> = {
+  research: { key: 'research', name: 'Research & Content' },
+  dev: { key: 'dev', name: 'Dev & Code' },
+  crypto: { key: 'markets', name: 'Crypto & Markets' },
+  'onchain-security': { key: 'hound', name: 'Onchain Security' },
+  social: { key: 'social', name: 'Social & Writing' },
+  productivity: { key: 'productivity', name: 'Productivity' },
+  meta: { key: 'agent-ops', name: 'Agent Ops' },
+  other: { key: 'lab', name: 'Lab' },
+}
+
 function getRepoSlug(): string {
   if (process.env.GITHUB_REPO) return process.env.GITHUB_REPO
   try {
@@ -61,31 +72,35 @@ export async function GET() {
       dirNames.map(async (name) => {
         try {
           const { content } = await getFileContent(`skills/${name}/SKILL.md`)
-          const { description, tags, requires, mcp } = parseFrontmatter(content)
-          return { name, description, tags, requires, mcp, found: true }
+          const { category, description, tags, requires, mcp } = parseFrontmatter(content)
+          return { name, category, description, tags, requires, mcp, found: true }
         } catch {
           // No SKILL.md → this is a support/data dir (e.g. skills/security/), not a skill.
-          return { name, description: '', tags: [] as string[], requires: [], mcp: [], found: false }
+          return { name, category: '', description: '', tags: [] as string[], requires: [], mcp: [], found: false }
         }
       }),
     )
 
     const skills: Skill[] = meta
       .filter(m => m.found)
-      .map(m => ({
-        name: m.name,
-        description: m.description,
-        tags: m.tags,
-        requires: m.requires,
-        mcp: m.mcp,
-        category: categoryBySlug[m.name] || 'meta',
-        pack: packBySlug[m.name] || 'lab',
-        packName: packNameBySlug[m.name] || '',
-        enabled: config.skills[m.name]?.enabled ?? false,
-        schedule: config.skills[m.name]?.schedule || '0 12 * * *',
-        var: config.skills[m.name]?.var || '',
-        model: config.skills[m.name]?.model || '',
-      }))
+      .map(m => {
+        const category = categoryBySlug[m.name] || m.category || 'meta'
+        const fallbackPack = PACK_BY_CATEGORY[category] || PACK_BY_CATEGORY.meta
+        return {
+          name: m.name,
+          description: m.description,
+          tags: m.tags,
+          requires: m.requires,
+          mcp: m.mcp,
+          category,
+          pack: packBySlug[m.name] || fallbackPack.key,
+          packName: packNameBySlug[m.name] || fallbackPack.name,
+          enabled: config.skills[m.name]?.enabled ?? false,
+          schedule: config.skills[m.name]?.schedule || '0 12 * * *',
+          var: config.skills[m.name]?.var || '',
+          model: config.skills[m.name]?.model || '',
+        }
+      })
 
     const repo = getRepoSlug()
     return NextResponse.json({ skills, model: config.model, gateway: config.gateway, repo, jsonrenderEnabled: config.jsonrenderEnabled })

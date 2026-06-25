@@ -24,3 +24,14 @@ export function normLinks(input: unknown): string[] {
 export function sanitizeModel(input: unknown): string {
   return typeof input === 'string' ? input.replace(/[^a-zA-Z0-9_-]/g, '') : ''
 }
+
+/**
+ * Keep operator-entered skill vars intact enough for flag-style arguments
+ * (`--depth=deep`, `wallet:spender:token`) while dropping shell/control
+ * characters that have no business in a dashboard-dispatched brief.
+ */
+export function sanitizeSkillVar(input: unknown): string {
+  return typeof input === 'string'
+    ? input.replace(/[^a-zA-Z0-9_ .,\-/#@:=()]/g, '').replace(/\s+/g, ' ').trim().slice(0, 500)
+    : ''
+}

@@ -22,12 +22,15 @@ import { StrategyPanel, type StrategySources } from '../components/StrategyPanel
 import { SoulPanel, type SoulFile, type SoulSources } from '../components/SoulPanel'
 import { McpPanel } from '../components/McpPanel'
 import { PacksPanel } from '../components/PacksPanel'
+import { TechTreePanel } from '../components/TechTreePanel'
 import { RightPanel } from '../components/RightPanel'
 import { ImportModal } from '../components/ImportModal'
 import { AuthModal } from '../components/AuthModal'
 
+type DashboardView = 'hq' | 'packs' | 'secrets' | 'strategy' | 'tech-tree' | 'mcp' | 'soul'
+
 export default function Dashboard() {
-  const [view, setView] = useState<'hq' | 'packs' | 'secrets' | 'strategy' | 'mcp' | 'soul'>('hq')
+  const [view, setView] = useState<DashboardView>('hq')
   const [selectedSkill, setSelectedSkill] = useState<string | null>(null)
   const [secretFocus, setSecretFocus] = useState<string | null>(null)
   // Shared with the sidebar's category chips - HQ category cards toggle it too.
@@ -156,6 +159,9 @@ export default function Dashboard() {
   }
   const saveStrategy = async (content: string) => { setStrategySaving(true); try { const { ok, data } = await putJson<SyncResult>('/api/strategy', { content }); if (ok) { setStrategy(content); flashSynced('Strategy saved', data) } else { flash('Save failed') } } finally { setStrategySaving(false) } }
   const buildStrategy = async (sources: StrategySources) => { setStrategyBuilding(true); try { const { ok, data } = await postJson<ErrorResponse>('/api/strategy/build', { ...sources, model }); if (ok) { flash('Strategy-builder started'); scheduleRunRefresh(refreshRuns) } else { flash(data.error || 'Build failed to dispatch') } } finally { setStrategyBuilding(false) } }
+  const buildTechTree = async (domain: string, depth: 'shallow' | 'deep', nodes: number) => {
+    await runSkill('tech-tree', `${domain} --depth=${depth} --nodes=${nodes}`)
+  }
   const saveMcp = async (servers: Record<string, Record<string, unknown>>) => { setMcpSaving(true); try { const { ok, data } = await putJson<SyncResult>('/api/mcp', { servers }); if (ok) { setMcpServers(servers); flashSynced('MCP servers saved', data) } else { flash('Save failed') } } finally { setMcpSaving(false) } }
   const saveSoul = async (file: SoulFile, content: string) => { setSoulSaving(true); try { const { ok, data } = await putJson<SyncResult>('/api/soul', { file, content }); if (ok) { if (file === 'soul') setSoul(content); else setSoulStyle(content); flashSynced(`${file === 'soul' ? 'SOUL.md' : 'STYLE.md'} saved`, data) } else { flash('Save failed') } } finally { setSoulSaving(false) } }
   const buildSoul = async (sources: SoulSources) => { setSoulBuilding(true); try { const { ok, data } = await postJson<ErrorResponse>('/api/soul/build', { ...sources, model }); if (ok) { const label = sources.handle ? `@${sources.handle}` : sources.name || 'your links'; flash(`Soul-builder started for ${label}`); scheduleRunRefresh(refreshRuns) } else { flash(data.error || 'Build failed to dispatch') } } finally { setSoulBuilding(false) } }
@@ -217,6 +223,16 @@ export default function Dashboard() {
           )}
           {view === 'strategy' && !selectedSkill && (
             <StrategyPanel content={strategy} loading={!strategyLoaded} saving={strategySaving} building={strategyBuilding} onSave={saveStrategy} onBuild={buildStrategy} />
+          )}
+          {view === 'tech-tree' && !selectedSkill && (
+            <TechTreePanel
+              skill={skills.find(s => s.name === 'tech-tree') || null}
+              runs={runs}
+              busy={!!busy['r-tech-tree']}
+              onRun={buildTechTree}
+              onSelectSkill={(name) => { setSelectedSkill(name); setView('hq') }}
+              onViewRun={() => {}}
+            />
           )}
           {view === 'mcp' && !selectedSkill && (
             <McpPanel servers={mcpServers} loading={!mcpLoaded} saving={mcpSaving} secrets={secrets} busy={busy} onSave={saveMcp} onSetSecret={saveSecret} onDeleteSecret={deleteSecret} />

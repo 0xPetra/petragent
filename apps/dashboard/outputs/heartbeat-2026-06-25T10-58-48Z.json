@@ -1,0 +1,127 @@
+{
+  "root": "main-card",
+  "state": {},
+  "elements": {
+    "main-card": {
+      "type": "Card",
+      "props": {
+        "title": "HEARTBEAT ALERT — Fleet Degraded"
+      },
+      "children": [
+        "main-stack"
+      ]
+    },
+    "main-stack": {
+      "type": "Stack",
+      "props": {
+        "direction": "vertical",
+        "gap": "md"
+      },
+      "children": [
+        "p0-section",
+        "separator1",
+        "p3-section",
+        "separator2",
+        "docs-link"
+      ]
+    },
+    "p0-section": {
+      "type": "Stack",
+      "props": {
+        "direction": "vertical",
+        "gap": "md"
+      },
+      "children": [
+        "p0-badge",
+        "alert1",
+        "alert2",
+        "alert3",
+        "alert4"
+      ]
+    },
+    "p0-badge": {
+      "type": "Badge",
+      "props": {
+        "text": "P0 — Critical Failures",
+        "variant": "destructive"
+      }
+    },
+    "alert1": {
+      "type": "Alert",
+      "props": {
+        "title": "Heartbeat stuck",
+        "message": "dispatched 2026-06-24 14:54 UTC, never reported back (>24h)",
+        "type": "error"
+      }
+    },
+    "alert2": {
+      "type": "Alert",
+      "props": {
+        "title": "Heartbeat chronic",
+        "message": "120 runs, 0 successes (0% success rate)",
+        "type": "error"
+      }
+    },
+    "alert3": {
+      "type": "Alert",
+      "props": {
+        "title": "tech-tree failed",
+        "message": "last failure 2026-06-24 23:52 UTC; 7 consecutive failures",
+        "type": "error"
+      }
+    },
+    "alert4": {
+      "type": "Alert",
+      "props": {
+        "title": "tweet-roundup chronic",
+        "message": "20% success rate (2/10 runs)",
+        "type": "error"
+      }
+    },
+    "separator1": {
+      "type": "Separator",
+      "props": {
+        "orientation": "horizontal"
+      }
+    },
+    "p3-section": {
+      "type": "Stack",
+      "props": {
+        "direction": "vertical",
+        "gap": "md"
+      },
+      "children": [
+        "p3-badge",
+        "alert5"
+      ]
+    },
+    "p3-badge": {
+      "type": "Badge",
+      "props": {
+        "text": "P3 — Config Issue",
+        "variant": "outline"
+      }
+    },
+    "alert5": {
+      "type": "Alert",
+      "props": {
+        "title": "tweet-digest missing",
+        "message": "enabled but no entry in cron-state.json",
+        "type": "warning"
+      }
+    },
+    "separator2": {
+      "type": "Separator",
+      "props": {
+        "orientation": "horizontal"
+      }
+    },
+    "docs-link": {
+      "type": "Link",
+      "props": {
+        "label": "See docs/status.md for full fleet health",
+        "href": "docs/status.md"
+      }
+    }
+  }
+}

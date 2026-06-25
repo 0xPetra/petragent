@@ -3,7 +3,7 @@ run-name: "${{ inputs.message && format('msg ({0}): {1}', inputs.source || 'user
 
 on:
   schedule:
-    - cron: '*/5 * * * *'
+    - cron: '*/30 * * * *'
   workflow_dispatch:
     inputs:
       message:
@@ -61,10 +61,10 @@ jobs:
           NOW_ISO=$(date -u +%FT%TZ)
           NOW_EPOCH=$(date -u +%s)
 
-          # Previous two hours for catch-up. GitHub Actions throttles the */5 tick
-          # to 71-97min gaps under load; a 1h lookback gives :40-:59 slots only
-          # ~65-80min of tolerance, so trailing-minute slots get dropped. A 2h
-          # lookback gives every slot >=120min of tolerance.
+          # Previous two hours for catch-up. GitHub Actions scheduled ticks can
+          # drift under load; a 1h lookback gives trailing-minute slots less
+          # tolerance than early-minute slots. A 2h lookback keeps every slot
+          # covered even when the poll cadence is intentionally sparse.
           PREV_HOUR=$(( (HOUR + 23) % 24 ))
           PREV2_HOUR=$(( (HOUR + 22) % 24 ))
 

@@ -1,0 +1,1 @@
+self-improve: fixed heartbeat model override — 120 consecutive failures traced to claude-haiku-4-5-20251001 returning 0 tokens on every run. Removed model override; heartbeat now inherits default claude-sonnet-4-6. Branch pushed: fix/self-improve-2026-06-25 — open PR at https://github.com/0xPetra/petragent/compare/fix/self-improve-2026-06-25

@@ -1,0 +1,172 @@
+{
+  "root": "card_main",
+  "state": {},
+  "elements": {
+    "card_main": {
+      "type": "Card",
+      "props": {
+        "title": "self-improve",
+        "description": "Fixed heartbeat model override causing consecutive failures"
+      },
+      "children": [
+        "alert_fix",
+        "sep1",
+        "stack_root_cause",
+        "sep2",
+        "stack_solution",
+        "sep3",
+        "stack_pr"
+      ]
+    },
+    "alert_fix": {
+      "type": "Alert",
+      "props": {
+        "type": "success",
+        "title": "Fixed heartbeat model override",
+        "message": "Root cause identified and resolved"
+      }
+    },
+    "sep1": {
+      "type": "Separator",
+      "props": {
+        "orientation": "horizontal"
+      }
+    },
+    "stack_root_cause": {
+      "type": "Stack",
+      "props": {
+        "direction": "vertical",
+        "gap": "md"
+      },
+      "children": [
+        "heading_cause",
+        "stat_failures",
+        "stack_model_issue"
+      ]
+    },
+    "heading_cause": {
+      "type": "Heading",
+      "props": {
+        "text": "Root Cause",
+        "level": "h3"
+      }
+    },
+    "stat_failures": {
+      "type": "Stat",
+      "props": {
+        "label": "Consecutive failures traced",
+        "value": "120"
+      }
+    },
+    "stack_model_issue": {
+      "type": "Stack",
+      "props": {
+        "direction": "horizontal",
+        "gap": "md"
+      },
+      "children": [
+        "badge_bad_model",
+        "text_issue"
+      ]
+    },
+    "badge_bad_model": {
+      "type": "Badge",
+      "props": {
+        "text": "claude-haiku-4-5-20251001",
+        "variant": "destructive"
+      }
+    },
+    "text_issue": {
+      "type": "Text",
+      "props": {
+        "text": "returning 0 tokens on every run"
+      }
+    },
+    "sep2": {
+      "type": "Separator",
+      "props": {
+        "orientation": "horizontal"
+      }
+    },
+    "stack_solution": {
+      "type": "Stack",
+      "props": {
+        "direction": "vertical",
+        "gap": "md"
+      },
+      "children": [
+        "heading_solution",
+        "text_fix",
+        "stack_new_model"
+      ]
+    },
+    "heading_solution": {
+      "type": "Heading",
+      "props": {
+        "text": "Solution",
+        "level": "h3"
+      }
+    },
+    "text_fix": {
+      "type": "Text",
+      "props": {
+        "text": "Removed model override"
+      }
+    },
+    "stack_new_model": {
+      "type": "Stack",
+      "props": {
+        "direction": "horizontal",
+        "gap": "md"
+      },
+      "children": [
+        "text_inherits",
+        "badge_good_model"
+      ]
+    },
+    "text_inherits": {
+      "type": "Text",
+      "props": {
+        "text": "Heartbeat now inherits default:"
+      }
+    },
+    "badge_good_model": {
+      "type": "Badge",
+      "props": {
+        "text": "claude-sonnet-4-6",
+        "variant": "secondary"
+      }
+    },
+    "sep3": {
+      "type": "Separator",
+      "props": {
+        "orientation": "horizontal"
+      }
+    },
+    "stack_pr": {
+      "type": "Stack",
+      "props": {
+        "direction": "vertical",
+        "gap": "sm"
+      },
+      "children": [
+        "text_branch",
+        "story_pr"
+      ]
+    },
+    "text_branch": {
+      "type": "Text",
+      "props": {
+        "text": "Branch pushed: fix/self-improve-2026-06-25"
+      }
+    },
+    "story_pr": {
+      "type": "StoryLink",
+      "props": {
+        "title": "Open PR",
+        "href": "https://github.com/0xPetra/petragent/compare/fix/self-improve-2026-06-25",
+        "source": "GitHub"
+      }
+    }
+  }
+}

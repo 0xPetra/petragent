@@ -1,0 +1,16 @@
+{
+  "skill": "onboard",
+  "last_analyzed": "2026-06-25T06:24:14Z",
+  "quality_score": 2,
+  "assessment": "Skill failed at core task (executing ./onboard --json) due to sandbox limitations; provided partial verification only",
+  "flags": [
+    "sandbox-limitation"
+  ],
+  "avg_score": 2,
+  "history": [
+    {
+      "date": "2026-06-25",
+      "score": 2
+    }
+  ]
+}

@@ -1,0 +1,1 @@
+self-improve: fixed tweet-roundup tech/startups topic — replaced 'technology OR startups OR open source' (consistently failed) with 'GitHub OR open source OR Hacker News' (Twitter-native terms). Branch: fix/self-improve-2026-06-26. Open PR at: https://github.com/0xPetra/petragent/compare/fix/self-improve-2026-06-26

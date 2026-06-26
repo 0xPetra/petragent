@@ -1,0 +1,79 @@
+{
+  "root": "card-root",
+  "state": {},
+  "elements": {
+    "card-root": {
+      "type": "Card",
+      "props": {
+        "title": "self-improve",
+        "description": "Fixed tweet-roundup tech/startups topic"
+      },
+      "children": [
+        "stack-main"
+      ]
+    },
+    "stack-main": {
+      "type": "Stack",
+      "props": {
+        "direction": "vertical",
+        "gap": "md"
+      },
+      "children": [
+        "text-intro",
+        "separator-1",
+        "table-terms",
+        "separator-2",
+        "text-branch",
+        "link-pr"
+      ]
+    },
+    "text-intro": {
+      "type": "Text",
+      "props": {
+        "text": "Replaced search terms that consistently failed with Twitter-native terms",
+        "variant": "body"
+      }
+    },
+    "separator-1": {
+      "type": "Separator",
+      "props": {
+        "orientation": "horizontal"
+      }
+    },
+    "table-terms": {
+      "type": "Table",
+      "props": {
+        "columns": [
+          "Previous",
+          "Current"
+        ],
+        "rows": [
+          [
+            "technology OR startups OR open source (consistently failed)",
+            "GitHub OR open source OR Hacker News (Twitter-native)"
+          ]
+        ]
+      }
+    },
+    "separator-2": {
+      "type": "Separator",
+      "props": {
+        "orientation": "horizontal"
+      }
+    },
+    "text-branch": {
+      "type": "Text",
+      "props": {
+        "text": "Branch: fix/self-improve-2026-06-26",
+        "variant": "caption"
+      }
+    },
+    "link-pr": {
+      "type": "Link",
+      "props": {
+        "label": "Open PR",
+        "href": "https://github.com/0xPetra/petragent/compare/fix/self-improve-2026-06-26"
+      }
+    }
+  }
+}

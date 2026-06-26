@@ -67,8 +67,8 @@
     "last_quality_score": 3
   },
   "tweet-roundup": {
-    "last_dispatch": "2026-06-26T06:23:58Z",
-    "last_status": "success",
+    "last_dispatch": "2026-06-26T12:40:45Z",
+    "last_status": "dispatched",
     "last_failed": "2026-06-25T02:18:40Z",
     "total_runs": 14,
     "total_successes": 6,

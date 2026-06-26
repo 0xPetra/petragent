@@ -1,0 +1,140 @@
+{
+  "root": "card-main",
+  "state": {},
+  "elements": {
+    "card-main": {
+      "type": "Card",
+      "props": {
+        "title": "Tweet Roundup — 2026-06-26",
+        "description": "Source: cache:0 websearch:2 failed:1"
+      },
+      "children": [
+        "ai-section",
+        "sep1",
+        "crypto-section"
+      ]
+    },
+    "ai-section": {
+      "type": "Stack",
+      "props": {
+        "direction": "vertical",
+        "gap": "md"
+      },
+      "children": [
+        "ai-badge",
+        "ai-header",
+        "ai-link"
+      ]
+    },
+    "ai-badge": {
+      "type": "Badge",
+      "props": {
+        "text": "AI / LLM",
+        "variant": "default"
+      }
+    },
+    "ai-header": {
+      "type": "Text",
+      "props": {
+        "text": "Single story dominating — OpenAI IPO clock slips to 2027",
+        "variant": "lead"
+      }
+    },
+    "ai-link": {
+      "type": "StoryLink",
+      "props": {
+        "title": "OpenAI IPO clock slips to 2027",
+        "href": "https://x.com/nytimes/status/2070253471526277292",
+        "source": "x.com/nytimes",
+        "score": "OpenAI is leaning toward delaying its IPO to next year; people inside the deliberations cited SpaceX's rocky post-IPO market and broader choppiness as reasons to wait."
+      }
+    },
+    "sep1": {
+      "type": "Separator",
+      "props": {
+        "orientation": "horizontal"
+      }
+    },
+    "crypto-section": {
+      "type": "Stack",
+      "props": {
+        "direction": "vertical",
+        "gap": "md"
+      },
+      "children": [
+        "crypto-badge",
+        "crypto-header",
+        "liq-subsec",
+        "opts-subsec"
+      ]
+    },
+    "crypto-badge": {
+      "type": "Badge",
+      "props": {
+        "text": "Crypto / Bitcoin / DeFi",
+        "variant": "default"
+      }
+    },
+    "crypto-header": {
+      "type": "Text",
+      "props": {
+        "text": "Cascading sell-off: liquidation shock and options expiry amplifying the move",
+        "variant": "lead"
+      }
+    },
+    "liq-subsec": {
+      "type": "Stack",
+      "props": {
+        "direction": "vertical",
+        "gap": "sm"
+      },
+      "children": [
+        "liq-title",
+        "liq-link"
+      ]
+    },
+    "liq-title": {
+      "type": "Heading",
+      "props": {
+        "text": "Liquidation cascade",
+        "level": "h4"
+      }
+    },
+    "liq-link": {
+      "type": "StoryLink",
+      "props": {
+        "title": "$450M in levered longs wiped in 60 minutes, BTC at 21-month low",
+        "href": "https://x.com/KobeissiLetter/status/2070146528824467493",
+        "source": "x.com/KobeissiLetter",
+        "score": "BREAKING: $450M in levered longs liquidated in one hour; BTC fell to $58K, a fresh 21-month low. A single-session liquidity shock, not a slow trend break."
+      }
+    },
+    "opts-subsec": {
+      "type": "Stack",
+      "props": {
+        "direction": "vertical",
+        "gap": "sm"
+      },
+      "children": [
+        "opts-title",
+        "opts-link"
+      ]
+    },
+    "opts-title": {
+      "type": "Heading",
+      "props": {
+        "text": "Options expiry pressure",
+        "level": "h4"
+      }
+    },
+    "opts-link": {
+      "type": "StoryLink",
+      "props": {
+        "title": "$10B rolling off Deribit Friday, market makers rebalancing into weakness",
+        "href": "https://x.com/CryptoTimes_io/status/2070039358774911051",
+        "source": "x.com/CryptoTimes_io",
+        "score": "Nearly $10B in Bitcoin options expire on Deribit this Friday; with markets already under pressure, traders are watching for a volatility spike as positions roll off."
+      }
+    }
+  }
+}

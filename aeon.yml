@@ -257,7 +257,7 @@ skills:
   content-performance: { enabled: false, schedule: "0 10 * * 0", var: "" } # Sunday 10:00 UTC — weekly engagement analysis of the operator's X account (topics, formats, breakouts); feeds article-queue/topic-momentum. var: X handle (no @); falls back to soul/SOUL.md. XAI_API_KEY optional (WebSearch fallback).
   thread-writer:
     {
-      enabled: true,
+      enabled: false,
       schedule: "workflow_dispatch",
       var: "Write a thread on the World Cup and Predicition markets, and Brier Score.
         And why forecasts for sports usually have bad Brier Score",

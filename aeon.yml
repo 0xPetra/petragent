@@ -115,7 +115,7 @@ skills:
   remix-tweets: { enabled: false, schedule: "30 17 * * *" } # 10 rephrased versions of random past tweets
   tweet-roundup:
     {
-      enabled: true,
+      enabled: false,
       schedule: "0 */6 * * *",
       var: "",
       model: "claude-sonnet-4-6"

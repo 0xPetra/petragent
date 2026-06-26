@@ -57,14 +57,14 @@
   },
   "tweet-digest": {
     "last_dispatch": "2026-06-26T14:52:49Z",
-    "last_status": "dispatched",
-    "last_success": "2026-06-25T14:59:06Z",
-    "total_runs": 3,
-    "total_successes": 3,
+    "last_status": "success",
+    "last_success": "2026-06-26T14:54:40Z",
+    "total_runs": 4,
+    "total_successes": 4,
     "total_failures": 0,
     "consecutive_failures": 0,
     "success_rate": 1,
-    "last_quality_score": 3
+    "last_quality_score": 2
   },
   "tweet-roundup": {
     "last_dispatch": "2026-06-26T12:40:45Z",

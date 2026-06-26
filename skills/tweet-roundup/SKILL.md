@@ -31,7 +31,7 @@ Priority order:
 3. Else use the built-in defaults:
    - `artificial intelligence OR AI agents OR LLM`
    - `crypto OR bitcoin OR DeFi`
-   - `technology OR startups OR open source`
+   - `GitHub OR open source OR Hacker News`
 
 ### 3. Fetch per topic — with source-path observability
 

@@ -1,0 +1,142 @@
+{
+  "root": "card-main",
+  "state": {},
+  "elements": {
+    "card-main": {
+      "type": "Card",
+      "props": {
+        "title": "🔴 HEARTBEAT: Chronic Failure Detected"
+      },
+      "children": [
+        "stack-main"
+      ]
+    },
+    "stack-main": {
+      "type": "Stack",
+      "props": {
+        "direction": "vertical",
+        "gap": "lg"
+      },
+      "children": [
+        "alert-chronic",
+        "sep1",
+        "skills-section",
+        "sep2",
+        "docs-and-status"
+      ]
+    },
+    "alert-chronic": {
+      "type": "Alert",
+      "props": {
+        "type": "error",
+        "title": "Chronic Failure Detected",
+        "message": "self-improve has entered chronic failure status with 40% success rate (2 successes in 5 runs). Combined with existing issues:"
+      }
+    },
+    "sep1": {
+      "type": "Separator",
+      "props": {
+        "orientation": "horizontal"
+      }
+    },
+    "skills-section": {
+      "type": "Stack",
+      "props": {
+        "direction": "vertical",
+        "gap": "md"
+      },
+      "children": [
+        "skills-heading",
+        "skills-table"
+      ]
+    },
+    "skills-heading": {
+      "type": "Heading",
+      "props": {
+        "text": "Skill Status",
+        "level": "h3"
+      }
+    },
+    "skills-table": {
+      "type": "Table",
+      "props": {
+        "columns": [
+          "Skill",
+          "Success Rate",
+          "Details"
+        ],
+        "rows": [
+          [
+            "self-improve",
+            "40%",
+            "2 successes in 5 runs"
+          ],
+          [
+            "tech-tree",
+            "0%",
+            "7 consecutive failures"
+          ],
+          [
+            "tweet-roundup",
+            "43%",
+            "—"
+          ],
+          [
+            "heartbeat",
+            "1%",
+            "recovered from stuck state"
+          ]
+        ]
+      }
+    },
+    "sep2": {
+      "type": "Separator",
+      "props": {
+        "orientation": "horizontal"
+      }
+    },
+    "docs-and-status": {
+      "type": "Stack",
+      "props": {
+        "direction": "vertical",
+        "gap": "md"
+      },
+      "children": [
+        "docs-info",
+        "operational-status"
+      ]
+    },
+    "docs-info": {
+      "type": "Stack",
+      "props": {
+        "direction": "vertical",
+        "gap": "sm"
+      },
+      "children": [
+        "docs-text",
+        "docs-link"
+      ]
+    },
+    "docs-text": {
+      "type": "Text",
+      "props": {
+        "text": "See full fleet health report:",
+        "variant": "body"
+      }
+    },
+    "docs-link": {
+      "type": "Link",
+      "props": {
+        "label": "docs/status.md",
+        "href": "docs/status.md"
+      }
+    },
+    "operational-status": {
+      "type": "Alert",
+      "props": {
+        "type": "warning",
+        "message": "The agent is degraded but still operational."
+      }
+    }
+  }
+}

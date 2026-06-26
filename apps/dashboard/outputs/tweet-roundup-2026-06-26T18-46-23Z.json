@@ -1,0 +1,140 @@
+{
+  "root": "card",
+  "state": {},
+  "elements": {
+    "card": {
+      "type": "Card",
+      "props": {
+        "title": "Tweet Roundup — 2026-06-26",
+        "description": "Source: cache:0 websearch:2 failed:1"
+      },
+      "children": [
+        "main_stack"
+      ]
+    },
+    "main_stack": {
+      "type": "Stack",
+      "props": {
+        "direction": "vertical",
+        "gap": "lg"
+      },
+      "children": [
+        "ai_section",
+        "separator1",
+        "crypto_section"
+      ]
+    },
+    "ai_section": {
+      "type": "Stack",
+      "props": {
+        "direction": "vertical",
+        "gap": "md"
+      },
+      "children": [
+        "ai_heading",
+        "ai_subheading",
+        "ai_stories"
+      ]
+    },
+    "ai_heading": {
+      "type": "Heading",
+      "props": {
+        "text": "[AI / LLM]",
+        "level": "h3"
+      }
+    },
+    "ai_subheading": {
+      "type": "Text",
+      "props": {
+        "text": "custom silicon bet while model launches stall",
+        "variant": "caption"
+      }
+    },
+    "ai_stories": {
+      "type": "Stack",
+      "props": {
+        "direction": "vertical",
+        "gap": "md"
+      },
+      "children": [
+        "ai_story1",
+        "ai_story2"
+      ]
+    },
+    "ai_story1": {
+      "type": "StoryLink",
+      "props": {
+        "title": "OpenAI and Broadcom unveiled Jalapeño, a custom AI accelerator targeting LLM inference; deploys to Microsoft data centers in 2026, with Celestica handling rack/system integration",
+        "href": "https://x.com/wallstengine/status/2069768165400490050",
+        "source": "x.com/wallstengine"
+      }
+    },
+    "ai_story2": {
+      "type": "StoryLink",
+      "props": {
+        "title": "GPT-5.6 delayed to mid-July; Google DeepMind cancelled Gemini 3.5 Pro June launch citing model dissatisfaction — multiple frontier releases slipping simultaneously",
+        "href": "https://x.com/0xLogicrw/status/2069592910707020021",
+        "source": "x.com/0xLogicrw"
+      }
+    },
+    "separator1": {
+      "type": "Separator",
+      "props": {
+        "orientation": "horizontal"
+      }
+    },
+    "crypto_section": {
+      "type": "Stack",
+      "props": {
+        "direction": "vertical",
+        "gap": "md"
+      },
+      "children": [
+        "crypto_heading",
+        "crypto_subheading",
+        "crypto_stories"
+      ]
+    },
+    "crypto_heading": {
+      "type": "Heading",
+      "props": {
+        "text": "[Crypto / Bitcoin / DeFi]",
+        "level": "h3"
+      }
+    },
+    "crypto_subheading": {
+      "type": "Text",
+      "props": {
+        "text": "markets under pressure heading into today's $13B options expiry",
+        "variant": "caption"
+      }
+    },
+    "crypto_stories": {
+      "type": "Stack",
+      "props": {
+        "direction": "vertical",
+        "gap": "md"
+      },
+      "children": [
+        "crypto_story1",
+        "crypto_story2"
+      ]
+    },
+    "crypto_story1": {
+      "type": "StoryLink",
+      "props": {
+        "title": "$13 billion in Bitcoin options open interest expires today (June 26), flagged as a key event that sets up potential volatility",
+        "href": "https://x.com/CryptoTimes_io/status/2068380496753795483",
+        "source": "x.com/CryptoTimes_io"
+      }
+    },
+    "crypto_story2": {
+      "type": "StoryLink",
+      "props": {
+        "title": "Spot Bitcoin ETFs recorded $114M in net outflows; Spot Ethereum ETFs shed $82.35M — institutional flow is exiting, not entering",
+        "href": "https://x.com/WuBlockchain/status/2069681816559091962",
+        "source": "x.com/WuBlockchain"
+      }
+    }
+  }
+}

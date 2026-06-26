@@ -1,13 +1,10 @@
 *Tweet Roundup — 2026-06-26*
 _Source: cache:0 websearch:2 failed:1_
 
-*[AI / LLM]* — _single story dominating — OpenAI IPO clock slips to 2027_
-- x.com/nytimes — OpenAI is leaning toward delaying its IPO to next year; people inside the deliberations cited SpaceX's rocky post-IPO market and broader choppiness as reasons to wait. [View](https://x.com/nytimes/status/2070253471526277292)
+*[AI / LLM]* — _custom silicon bet while model launches stall_
+- x.com/wallstengine — OpenAI and Broadcom unveiled Jalapeño, a custom AI accelerator targeting LLM inference; deploys to Microsoft data centers in 2026, with Celestica handling rack/system integration [View](https://x.com/wallstengine/status/2069768165400490050)
+- x.com/0xLogicrw — GPT-5.6 delayed to mid-July; Google DeepMind cancelled Gemini 3.5 Pro June launch citing model dissatisfaction — multiple frontier releases slipping simultaneously [View](https://x.com/0xLogicrw/status/2069592910707020021)
 
-*[Crypto / Bitcoin / DeFi]* — _cascading sell-off: liquidation shock and options expiry amplifying the move_
-
-_Liquidation cascade_ — $450M in levered longs wiped in 60 minutes, BTC at 21-month low
-- x.com/KobeissiLetter — BREAKING: $450M in levered longs liquidated in one hour; BTC fell to $58K, a fresh 21-month low. A single-session liquidity shock, not a slow trend break. [View](https://x.com/KobeissiLetter/status/2070146528824467493)
-
-_Options expiry pressure_ — $10B rolling off Deribit Friday, market makers rebalancing into weakness
-- x.com/CryptoTimes_io — Nearly $10B in Bitcoin options expire on Deribit this Friday; with markets already under pressure, traders are watching for a volatility spike as positions roll off. [View](https://x.com/CryptoTimes_io/status/2070039358774911051)
+*[Crypto / Bitcoin / DeFi]* — _markets under pressure heading into today's $13B options expiry_
+- x.com/CryptoTimes_io — $13 billion in Bitcoin options open interest expires today (June 26), flagged as a key event that sets up potential volatility [View](https://x.com/CryptoTimes_io/status/2068380496753795483)
+- x.com/WuBlockchain — Spot Bitcoin ETFs recorded $114M in net outflows; Spot Ethereum ETFs shed $82.35M — institutional flow is exiting, not entering [View](https://x.com/WuBlockchain/status/2069681816559091962)

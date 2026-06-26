@@ -16,3 +16,4 @@ date,skill,model,input_tokens,output_tokens,cache_read,cache_creation
 2026-06-26,heartbeat,claude-haiku-4-5-20251001,153,10813,426757,58688
 2026-06-26,tweet-roundup,claude-sonnet-4-6,96,10405,436689,29988
 2026-06-26,tweet-digest,claude-sonnet-4-6,8,1477,204334,15650
+2026-06-26,tweet-roundup,claude-sonnet-4-6,25,15196,1077661,64163

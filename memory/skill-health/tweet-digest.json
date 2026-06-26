@@ -1,10 +1,13 @@
 {
   "skill": "tweet-digest",
-  "last_analyzed": "2026-06-25T14:59:04Z",
-  "quality_score": 3,
-  "assessment": "Graceful config error handling — exited cleanly with specific setup instructions",
-  "flags": [],
-  "avg_score": 3,
+  "last_analyzed": "2026-06-26T14:53:44Z",
+  "quality_score": 2,
+  "assessment": "Skill ran without error but produced no actual output — gracefully handled missing config with clear remediation steps, but failed to accomplish its core task (tweet digest generation).",
+  "flags": [
+    "empty_output",
+    "generic_content"
+  ],
+  "avg_score": 2.75,
   "history": [
     {
       "date": "2026-06-24",
@@ -17,6 +20,10 @@
     {
       "date": "2026-06-25",
       "score": 3
+    },
+    {
+      "date": "2026-06-26",
+      "score": 2
     }
   ]
 }

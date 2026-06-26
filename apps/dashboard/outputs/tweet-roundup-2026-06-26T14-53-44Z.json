@@ -1,0 +1,92 @@
+{
+  "root": "card-main",
+  "state": {},
+  "elements": {
+    "card-main": {
+      "type": "Card",
+      "props": {
+        "title": "Tweet Roundup — 2026-06-26",
+        "description": "Source: cache:0 websearch:3 failed:0"
+      },
+      "children": [
+        "badge-category",
+        "text-summary",
+        "sep-main",
+        "tweet1-stack",
+        "tweet2-stack"
+      ]
+    },
+    "badge-category": {
+      "type": "Badge",
+      "props": {
+        "text": "AI / LLM / AI Agents",
+        "variant": "default"
+      }
+    },
+    "text-summary": {
+      "type": "Text",
+      "props": {
+        "text": "open-source model adoption accelerating; custom inference silicon announced — two moves reshaping the AI infrastructure layer",
+        "variant": "lead"
+      }
+    },
+    "sep-main": {
+      "type": "Separator",
+      "props": {
+        "orientation": "horizontal"
+      }
+    },
+    "tweet1-stack": {
+      "type": "Stack",
+      "props": {
+        "direction": "vertical",
+        "gap": "md"
+      },
+      "children": [
+        "tweet1",
+        "link1"
+      ]
+    },
+    "tweet1": {
+      "type": "TweetCard",
+      "props": {
+        "author": "willccbb",
+        "handle": "willccbb",
+        "text": "Large enterprises are rapidly post-training models in-house on GLM-5.2; a practitioner reads this as confirmation that open-source AI has definitively crossed the enterprise adoption threshold"
+      }
+    },
+    "link1": {
+      "type": "Link",
+      "props": {
+        "label": "View on X",
+        "href": "https://x.com/willccbb/status/2070298418262721008"
+      }
+    },
+    "tweet2-stack": {
+      "type": "Stack",
+      "props": {
+        "direction": "vertical",
+        "gap": "md"
+      },
+      "children": [
+        "tweet2",
+        "link2"
+      ]
+    },
+    "tweet2": {
+      "type": "TweetCard",
+      "props": {
+        "author": "ai_for_success",
+        "handle": "ai_for_success",
+        "text": "OpenAI and Broadcom reportedly unveiled \"Jalapeño,\" a purpose-built chip for LLM inference — signaling a shift from GPU dependence to custom silicon for serving AI at scale"
+      }
+    },
+    "link2": {
+      "type": "Link",
+      "props": {
+        "label": "View on X",
+        "href": "https://x.com/ai_for_success/status/2069771422487212040"
+      }
+    }
+  }
+}
